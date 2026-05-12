@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Form</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+      @import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #25252b;
+      }
+
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+
+      @property --a {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: 0deg;
+      }
+
+      .box {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        background: repeating-conic-gradient(
+          from var(--a),
+          #D3AF37 0%,
+          #D3AF37 5%,
+          transparent 5%,
+          transparent 40%,
+          #D3AF37 50%
+        );
+        filter: drop-shadow(0 15px 50px #000);
+        border-radius: 20px;
+        animation: rotating 4s linear infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+      }
+
+      @keyframes rotating {
+        0% {
+          --a: 0deg;
+        }
+        100% {
+          --a: 360deg;
+        }
+      }
+
+      .box::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: repeating-conic-gradient(
+          from var(--a),
+          #fff 0%,
+          #fff 5%,
+          transparent 5%,
+          transparent 40%,
+          #fff 50%
+        );
+        filter: drop-shadow(0 15px 50px #000);
+        border-radius: 20px;
+        animation: rotating 4s linear infinite;
+        animation-delay: -1s;
+      }
+
+      .box::after {
+        content: "";
+        position: absolute;
+        inset: 4px;
+        background: #2d2d39;
+        border-radius: 15px;
+        border: 8px solid #25252b;
+      }
+
+      .box {
+        width: 450px;
+        height: 600px;
+      }
+
+      .login {
+        position: absolute;
+        inset: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        background: #00000033;
+        color: #fff;
+        z-index: 1000;
+        box-shadow: inset 0 10px 20px #00000080;
+        border-bottom: 2px solid #ffffff80;
+        transition: 0.5s;
+        overflow: hidden;
+      }
+
+      .loginBx {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 14px;
+        width: 75%;
+        transform: translateY(0px);
+        transition: 0.5s;
+      }
+
+      h2 {
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        margin-bottom: 4px;
+      }
+
+      h2 i {
+        color: #d3af37;
+        text-shadow:
+          0 0 5px #d3af37,
+          0 0 20px #d3af37;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px 20px;
+        outline: none;
+        border: none;
+        font-size: 0.92em;
+        color: #fff;
+        background: #0000001a;
+        border: 2px solid #fff;
+        border-radius: 30px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+      }
+
+      input:focus {
+        border-color: #fff;
+        box-shadow: 0 0 8px #45f3ff55;
+      }
+
+      input::placeholder {
+        color: #999;
+      }
+
+      input[type="submit"] {
+        background: #D3AF37;
+        border: none;
+        font-weight: 500;
+        color: #111;
+        cursor: pointer;
+        transition: 0.5s;
+        margin-top: 4px;
+      }
+
+      input[type="submit"]:hover {
+        box-shadow:
+          0 0 10px #D3AF37,
+          0 0 60px #D3AF37;
+      }
+
+      /* Indicador de força da senha */
+      .password-strength {
+        width: 100%;
+        display: flex;
+        gap: 4px;
+        margin-top: -8px;
+        padding: 0 4px;
+      }
+
+      .strength-bar {
+        flex: 1;
+        height: 3px;
+        border-radius: 2px;
+        background: #ffffff22;
+        transition: background 0.3s;
+      }
+
+      .strength-bar.weak {
+        background: #ff2770;
+      }
+      .strength-bar.medium {
+        background: #ffaa00;
+      }
+      .strength-bar.strong {
+        background: #45f3ff;
+      }
+
+      .strength-label {
+        font-size: 0.65em;
+        color: #aaa;
+        width: 100%;
+        text-align: right;
+        padding-right: 4px;
+        margin-top: -6px;
+        height: 14px;
+        transition: color 0.3s;
+      }
+
+      /* Label oculto pois o formulário já está visível */
+      .registerLabel {
+        display: none;
+      }
+
+      .group {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.85em;
+      }
+
+      .group a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .group a:hover {
+        text-shadow: 0 0 8px #fff;
+      }
+
+      /* Mensagem de erro/sucesso */
+      .msg {
+        font-size: 0.72em;
+        color: #ff2770;
+        text-align: center;
+        min-height: 16px;
+        margin-top: -6px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <div class="login">
+        <span class="registerLabel">Registrar-se</span>
+        <div class="loginBx">
+          <h2>
+            <i class="fa-solid fa-user-plus"></i>
+            Cadastro
+          </h2>
+
+          <input type="text" id="name" placeholder="Nome completo" />
+          <input type="email" id="email" placeholder="E-mail" />
+          <input type="text" id="username" placeholder="Nome de usuário" />
+          <input
+            type="password"
+            id="password"
+            placeholder="Senha"
+            oninput="checkStrength(this.value)"
+          />
+
+          <!-- Barra de força da senha -->
+          <div class="password-strength">
+            <div class="strength-bar" id="bar1"></div>
+            <div class="strength-bar" id="bar2"></div>
+            <div class="strength-bar" id="bar3"></div>
+          </div>
+          <div class="strength-label" id="strengthLabel"></div>
+
+          <input type="password" id="confirm" placeholder="Confirmar senha" />
+
+          <div class="msg" id="msg"></div>
+
+          <input type="submit" value="Criar conta" onclick="handleRegister()" />
+
+          <div class="group">
+            <span>Já tem uma conta?</span>
+            <a href="#">Entrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function checkStrength(val) {
+        const bars = [
+          document.getElementById("bar1"),
+          document.getElementById("bar2"),
+          document.getElementById("bar3"),
+        ]
+        const label = document.getElementById("strengthLabel")
+
+        // Reset
+        bars.forEach((b) => (b.className = "strength-bar"))
+        label.textContent = ""
+        label.style.color = "#aaa"
+
+        if (!val) return
+
+        let score = 0
+        if (val.length >= 6) score++
+        if (/[A-Z]/.test(val) || /[0-9]/.test(val)) score++
+        if (val.length >= 10 && /[^a-zA-Z0-9]/.test(val)) score++
+
+        const levels = ["weak", "medium", "strong"]
+        const labels = ["Fraca", "Média", "Forte"]
+        const colors = ["#ff2770", "#ffaa00", "#45f3ff"]
+
+        for (let i = 0; i < score; i++) {
+          bars[i].classList.add(levels[score - 1])
+        }
+
+        label.textContent = labels[score - 1] || ""
+        label.style.color = colors[score - 1] || "#aaa"
+      }
+
+      function handleRegister() {
+        const name = document.getElementById("name").value.trim()
+        const email = document.getElementById("email").value.trim()
+        const username = document.getElementById("username").value.trim()
+        const password = document.getElementById("password").value
+        const confirm = document.getElementById("confirm").value
+        const msg = document.getElementById("msg")
+
+        if (!name || !email || !username || !password || !confirm) {
+          msg.textContent = "Preencha todos os campos."
+          msg.style.color = "#ff2770"
+          return
+        }
+
+        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+        if (!emailOk) {
+          msg.textContent = "E-mail inválido."
+          msg.style.color = "#ff2770"
+          return
+        }
+
+        if (password.length < 6) {
+          msg.textContent = "Senha muito curta (mín. 6 caracteres)."
+          msg.style.color = "#ff2770"
+          return
+        }
+
+        if (password !== confirm) {
+          msg.textContent = "As senhas não coincidem."
+          msg.style.color = "#ff2770"
+          return
+        }
+
+        msg.textContent = "Conta criada com sucesso! ✓"
+        msg.style.color = "#45f3ff"
+      }
+    </script>
+  </body>
+</html>

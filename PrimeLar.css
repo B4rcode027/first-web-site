@@ -1,0 +1,27 @@
+
+h1 {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%; /* Ou qualquer largura definida */
+}
+
+.pousada {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border-radius: 30px 30px 30px 30px; /*arredondar bordas */
+  border: 4px solid #3498db; /* Uma borda azul de 4 pixels */
+  padding: 5px; /* Espaço entre a imagem e a borda */
+}
+
+
+
