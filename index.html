@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="PrimeLar.css">
+  <link rel="stylesheet" href="./PrimeLar.css">
   <title>Document</title>
 </head>
-<body>
+<body style="background-color:#A9A9A9;">
 
   <img class="logo" src="Logo - PrimeLar.png" alt="">
   
@@ -22,17 +22,29 @@
   <button class="login"><a href="./login.html" target="_blank">Login</button></a>
   <button class="register"><a href="./register.html" target="_blank">Registre-se</button></a>
 
-  <div class="search-box">
-    <input type="text" placeholder="Busque aqui rua, Baixo ou Cidade...">
-    <button>🔍</button>
-  </div>
+  <form class="search-box" id="searchForm">
+  <input type="text" id="searchInput" placeholder="Busque rua, bairro ou cidade...">
+  <button type="submit" id="searchBtn">🔍</button>
+</form>
     
   <img class="pousada" src="image_bcd759bc.png" alt="">
 
 
 <h2>Categorias</h2>
 
-<a  class="APMMV" href="" style="background-image: url();">Apartamento do Minha Casa Minha Vida</a>
+<div>
+  <a class="APMMV" href="" style="
+    display: inline-block;
+    width: 300px; 
+    height: 200px;
+    background-image: url('./sobrado.jpeg');
+    background-size: cover;
+    background-position: center;
+    text-indent: -9999px;
+">
+    Apartamento do Minha Casa Minha Vida
+</a>
+</div>
 <a class="UNLPSP" href="" style="background-image: url();">Um novo lar também para seu pet!</a>
 <a class="" href="" style="background-image: url();">A Varanda com Vista dos Sonhos</a>
 <a class="" href="" style="background-image: url();">Procurando Imóveis Mobiliados?</a>

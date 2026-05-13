@@ -23,5 +23,52 @@ h1 {
   padding: 5px; /* Espaço entre a imagem e a borda */
 }
 
+/* Caixa de pesquisa */
+.search-box {
+  display: flex;
+  align-items: stretch;
+  max-width: 560px;
+  width: 90%;
+  margin: 1.25rem auto;
+  background: #fff;
+  border-radius: 999px;
+  border: 2px solid #3498db;
+  box-shadow: 0 4px 14px rgba(52, 152, 219, 0.25);
+  overflow: hidden;
+}
 
+.search-box input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 0.85rem 1.25rem;
+  font-family: "Oswald", sans-serif, system-ui;
+  font-size: 1rem;
+  color: #2c3e50;
+  background: transparent;
+}
+
+.search-box input[type="text"]::placeholder {
+  color: #95a5a6;
+}
+
+.search-box #searchBtn {
+  flex-shrink: 0;
+  border: none;
+  background: #3498db;
+  color: #fff;
+  padding: 0 1.1rem;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-box #searchBtn:hover {
+  background: #2980b9;
+}
+
+.search-box #searchBtn:active {
+  background: #21618c;
+}
 
