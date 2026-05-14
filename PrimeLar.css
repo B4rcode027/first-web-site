@@ -96,3 +96,9 @@ h1 {
     font-family: sans-serif;
     font-size: 14px;
   }
+
+  .vendas {
+    display: flex;
+    gap: 20px; /* Espaçamento entre os itens */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+  }
