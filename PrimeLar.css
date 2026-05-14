@@ -13,11 +13,14 @@ h1 {
   width: 25%; /* Ou qualquer largura definida */
 }
 
-/*.botao {
+.botao {
 padding: 12px;
 background-color: #3498db;
 
-}*/
+}
+
+
+
 .pousada {
   display: block;
   margin-left: auto;
