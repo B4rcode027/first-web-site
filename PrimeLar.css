@@ -1,10 +1,4 @@
 @import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
-h1 {
-  font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
-}
 
 .logo {
   display: block;
@@ -15,7 +9,7 @@ h1 {
 
 .navigation {
 padding: 12px;
-background-color: gold;
+background: linear-gradient(to right,#e49a1b,rgb(221, 189, 9));
 justify-content: space-between;
 display:flex;
 }
@@ -32,6 +26,9 @@ a:hover {
   padding: 10px 20px;
   border-radius: 10px;
   border: none;
+  font-family: "BJCree", serif;
+font-weight: 00;
+font-style: normal;
 }
 .botao:hover {
   background-color: gold;
@@ -42,7 +39,7 @@ a:hover {
   margin-right: auto;
   width: 50%;
   border-radius: 30px 30px 30px 30px; /*arredondar bordas */
-  border: 4px solid #3498db; /* Uma borda azul de 4 pixels */
+  border: 4px solid gold; /* Uma borda azul de 4 pixels */
   padding: 5px; /* Espaço entre a imagem e a borda */
 }
 
@@ -55,8 +52,8 @@ a:hover {
   margin: 1.25rem auto;
   background: #fff;
   border-radius: 999px;
-  border: 2px solid #3498db;
-  box-shadow: 0 4px 14px rgba(52, 152, 219, 0.25);
+  border: 2px solid gold;
+  box-shadow: 0 4px 14px gold;
   overflow: hidden;
 }
 
@@ -79,7 +76,7 @@ a:hover {
 .search-box #searchBtn {
   flex-shrink: 0;
   border: none;
-  background: #3498db;
+  background: gold;
   color: #fff;
   padding: 0 1.1rem;
   font-size: 1.15rem;
@@ -88,11 +85,20 @@ a:hover {
 }
 
 .search-box #searchBtn:hover {
-  background: #2980b9;
+  background: gold;
 }
 
 .search-box #searchBtn:active {
   background: #21618c;
+}
+
+.categorias {
+display: flex;
+justify-content: center;
+font-family: "BJCree", serif;
+font-weight: 900;
+font-style: normal;
+color: gold;
 }
 
 .container-venda {
@@ -101,6 +107,9 @@ a:hover {
     width: 300px; /* Mantive a largura do seu código */
     height: 200px; /* Mantive a altura do seu código */
     overflow: hidden; /* Garante que nada saia da borda */
+    font-family: "BJCree", serif;
+  font-weight: 600;
+  font-style: normal;
   }
 
   .container-venda img {
