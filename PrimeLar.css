@@ -13,14 +13,29 @@ h1 {
   width: 25%; /* Ou qualquer largura definida */
 }
 
-.botao {
+.navigation {
 padding: 12px;
-background-color: #3498db;
-
+background-color: gold;
+justify-content: space-between;
+display:flex;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
 
-
+a:hover {
+  color: #fff;
+}
+.botao {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+}
+.botao:hover {
+  background-color: gold;
+}
 .pousada {
   display: block;
   margin-left: auto;
