@@ -147,20 +147,13 @@ color: gold;
   transform: translate(-50%, -50%); /* Ajuste fino para centralizar perfeitamente */
 }
 
-.Categoria4 {
+.categoria4botao {
   display: flex;
   flex-direction: center;
-
+  background: none;
+  border: none;
 }
-
-.categoria4txt {
+.categoria4h2 {
   display: flex;
-  flex-direction: center;
-}
-
-.categoria4img {
-  display: flex;
-  weight: auto;
-  height: 360px;
   flex-direction: center;
 }
