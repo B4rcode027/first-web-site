@@ -1,4 +1,4 @@
-
+@import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
 h1 {
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
@@ -13,6 +13,11 @@ h1 {
   width: 25%; /* Ou qualquer largura definida */
 }
 
+/*.botao {
+padding: 12px;
+background-color: #3498db;
+
+}*/
 .pousada {
   display: block;
   margin-left: auto;
