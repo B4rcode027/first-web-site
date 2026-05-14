@@ -134,3 +134,15 @@ color: gold;
     gap: 20px; /* Espaçamento entre os itens */
     justify-content: center; /* Centraliza os itens horizontalmente */
   }
+
+  .container-imagem {
+  position: relative; /* Transforma o contêiner na âncora principal */
+  display: inline-block;
+}
+
+.texto-centro {
+  position: absolute; /* Faz o texto flutuar sobre a imagem */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Ajuste fino para centralizar perfeitamente */
+}
