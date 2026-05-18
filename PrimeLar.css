@@ -147,20 +147,14 @@ color: gold;
   transform: translate(-50%, -50%); /* Ajuste fino para centralizar perfeitamente */
 }
 
-.Categoria4 {
+.categoria5 {
+  position: relative;
+  text-align: center;
+  background: url(./paisagem.jpeg) no-repeat center center;
+  background-size: cover;
+  width: 300px;
+  height: 200px;
   display: flex;
-  flex-direction: center;
-
-}
-
-.categoria4txt {
-  display: flex;
-  flex-direction: center;
-}
-
-.categoria4img {
-  display: flex;
-  weight: auto;
-  height: 360px;
-  flex-direction: center;
+  justify-content: center;
+  align-items: center;
 }
