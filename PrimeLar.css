@@ -158,3 +158,10 @@ color: gold;
   justify-content: center;
   align-items: center;
 }
+
+section > a {
+  display: block;        /* Transforma em bloco para poder centralizar */
+  max-width: 200px;      /* Limita o tamanho exato da caixa de clique */
+  margin: 0 auto;        /* Centraliza o link (e o botão) na tela */
+  text-decoration: none;
+}
