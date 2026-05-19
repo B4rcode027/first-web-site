@@ -29,6 +29,7 @@ a:hover {
   font-family: "BJCree", serif;
   font-weight: 00;
   font-style: normal;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 .botao:hover {
   background-color: gold;
