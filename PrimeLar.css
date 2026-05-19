@@ -132,8 +132,8 @@ a:hover {
 
 .vendas {
   display: flex;
-  gap: 20px; /* Espaçamento entre os itens */
-  justify-content: center; /* Centraliza os itens horizontalmente */
+  gap: 20px;  
+  justify-content: center; 
 }
 
 .container-imagem {
