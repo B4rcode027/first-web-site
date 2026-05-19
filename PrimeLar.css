@@ -176,3 +176,17 @@ section > a {
   margin: 0 auto; /* Centraliza o link (e o botão) na tela */
   text-decoration: none;
 }
+
+.links-rapidos {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 10px;               
+  margin-top: 15px;        
+  margin-bottom: 15px;     
+  flex-wrap: wrap;         
+}
+
+.categoria5 p {
+  margin: 0;
+}
