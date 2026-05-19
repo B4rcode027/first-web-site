@@ -8,10 +8,10 @@
 }
 
 .navigation {
-padding: 12px;
-background: linear-gradient(to right,#e49a1b,rgb(221, 189, 9));
-justify-content: space-between;
-display:flex;
+  padding: 12px;
+  background: linear-gradient(to right, #e49a1b, rgb(221, 189, 9));
+  justify-content: space-between;
+  display: flex;
 }
 
 a {
@@ -27,8 +27,8 @@ a:hover {
   border-radius: 10px;
   border: none;
   font-family: "BJCree", serif;
-font-weight: 00;
-font-style: normal;
+  font-weight: 00;
+  font-style: normal;
 }
 .botao:hover {
   background-color: gold;
@@ -93,49 +93,49 @@ font-style: normal;
 }
 
 .categorias {
-display: flex;
-justify-content: center;
-font-family: "BJCree", serif;
-font-weight: 900;
-font-style: normal;
-color: gold;
+  display: flex;
+  justify-content: center;
+  font-family: "BJCree", serif;
+  font-weight: 900;
+  font-style: normal;
+  color: gold;
 }
 
 .container-venda {
-    position: relative;
-    display: inline-block;
-    width: 300px; /* Mantive a largura do seu código */
-    height: 200px; /* Mantive a altura do seu código */
-    overflow: hidden; /* Garante que nada saia da borda */
-    font-family: "BJCree", serif;
+  position: relative;
+  display: inline-block;
+  width: 300px; /* Mantive a largura do seu código */
+  height: 200px; /* Mantive a altura do seu código */
+  overflow: hidden; /* Garante que nada saia da borda */
+  font-family: "BJCree", serif;
   font-weight: 600;
   font-style: normal;
-  }
+}
 
-  .container-venda img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Faz a mesma função do background-size: cover */
-  }
+.container-venda img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz a mesma função do background-size: cover */
+}
 
-  .texto-venda {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro para destacar o texto */
-    color: white;
-    padding: 8px 12px;
-    font-family: sans-serif;
-    font-size: 14px;
-  }
+.texto-venda {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro para destacar o texto */
+  color: white;
+  padding: 8px 12px;
+  font-family: sans-serif;
+  font-size: 14px;
+}
 
-  .vendas {
-    display: flex;
-    gap: 20px; /* Espaçamento entre os itens */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-  }
+.vendas {
+  display: flex;
+  gap: 20px; /* Espaçamento entre os itens */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+}
 
-  .container-imagem {
+.container-imagem {
   position: relative; /* Transforma o contêiner na âncora principal */
   display: inline-block;
 }
@@ -144,24 +144,34 @@ color: gold;
   position: absolute; /* Faz o texto flutuar sobre a imagem */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Ajuste fino para centralizar perfeitamente */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Ajuste fino para centralizar perfeitamente */
 }
 
 .categoria5 {
   position: relative;
   text-align: center;
-  background: url(./paisagem.jpeg) no-repeat center center;
+  border-radius: 10px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("./paisagem.jpeg") no-repeat center center;
   background-size: cover;
   width: 300px;
   height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "BJCree", serif;
+  font-weight: 800;
+  font-style: normal;
+  color: #fff;
 }
 
 section > a {
-  display: block;        /* Transforma em bloco para poder centralizar */
-  max-width: 200px;      /* Limita o tamanho exato da caixa de clique */
-  margin: 0 auto;        /* Centraliza o link (e o botão) na tela */
+  display: block; /* Transforma em bloco para poder centralizar */
+  max-width: 200px; /* Limita o tamanho exato da caixa de clique */
+  margin: 0 auto; /* Centraliza o link (e o botão) na tela */
   text-decoration: none;
 }
