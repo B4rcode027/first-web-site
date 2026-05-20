@@ -1,9 +1,5 @@
 # 🌐 Meu Primeiro Projeto em HTML
 
-Como este é o seu primeiro projeto, usei uma imagem ilustrativa para representar o layout de uma página web moderna e limpa no topo do seu repositório:
-
-http://googleusercontent.com/image_generation_content/0
-
 ## 📝 Sobre o Projeto
 Este é o meu primeiríssimo passo no mundo do desenvolvimento web! O projeto consiste em uma página simples construída inteiramente em **HTML5** (e possivelmente um pouco de CSS para estilização), criada com o objetivo de praticar os conceitos fundamentais da estrutura de uma página web.
 
