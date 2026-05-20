@@ -1,7 +1,7 @@
 # 🌐 Meu Primeiro Projeto em HTML
 
 ## 📝 Sobre o Projeto
-Este é o meu primeiríssimo passo no mundo do desenvolvimento web! O projeto consiste em uma página simples construída inteiramente em **HTML5** (e possivelmente um pouco de CSS para estilização), criada com o objetivo de praticar os conceitos fundamentais da estrutura de uma página web.
+Este é o meu primeiríssimo passo no mundo do desenvolvimento web! O projeto consiste em uma página simples construída inteiramente em **HTML5** e **CSS**, criada com o objetivo de praticar os conceitos fundamentais da estrutura de uma página web.
 
 Foi um marco importante para mim, pois foi onde aprendi a criar a base de tudo o que vemos na internet.
 
