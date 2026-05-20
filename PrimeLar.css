@@ -151,6 +151,23 @@ a:hover {
   ); /* Ajuste fino para centralizar perfeitamente */
 }
 
+.links-rapidos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
 .categoria1 {
   position: relative;
   text-align: center;
@@ -165,7 +182,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   font-family: "BJCree", serif;
-  font-weight: 800;
+  font-weight: 700;
   font-style: normal;
   color: #fff;
 }
@@ -184,7 +201,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   font-family: "BJCree", serif;
-  font-weight: 800;
+  font-weight: 700;
   font-style: normal;
   color: #fff;
 }
@@ -203,7 +220,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   font-family: "BJCree", serif;
-  font-weight: 800;
+  font-weight: 700;
   font-style: normal;
   color: #fff;
 }
@@ -222,31 +239,17 @@ a:hover {
   justify-content: center;
   align-items: center;
   font-family: "BJCree", serif;
-  font-weight: 800;
+  font-weight: 700;
   font-style: normal;
   color: #fff;
 }
 
 section > a {
-  display: block; /* Transforma em bloco para poder centralizar */
-  
-  margin: 0 auto; /* Centraliza o link (e o botão) na tela */
+  display: block; /* Transforma em bloco para poder centralizar */ 
+  margin: 10px; Centraliza o link (e o botão) na tela
   text-decoration: none;
 }
 
-.links-rapidos {
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  gap: 10px;               
-  margin-top: 15px;        
-  margin-bottom: 15px;     
-  flex-wrap: wrap;         
-}
-
-.categoria5 p {
-  margin: 0;
-}
 
 #aluguel {
   display: block;
