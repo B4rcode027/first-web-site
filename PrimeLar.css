@@ -34,14 +34,25 @@ a:hover {
 .botao:hover {
   background-color: gold;
 }
-.pousada {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+
+/* .pousada {
   width: 50%;
-  border-radius: 30px 30px 30px 30px; /*arredondar bordas */
-  border: 4px solid gold; /* Uma borda azul de 4 pixels */
-  padding: 5px; /* Espaço entre a imagem e a borda */
+  height: 500px;
+  border-radius: 25px;
+  background:
+  linear-gradient(to top, rgba(0, 0, 0, 0.075),  transparent),
+  url('pousadapng2.0.png');
+   background-size: cover;
+}*/
+
+.pousada{
+  display: block;
+  margin-left: 100px;
+  background-image: url(pousadapng2.0\ \(1\).png);
+  width: 50%;
+  height: 800px;
+  background-size: cover;
+  /* mix-blend-mode: multiply; */
 }
 
 /* Caixa de pesquisa */
