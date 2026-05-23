@@ -48,9 +48,8 @@ a:hover {
 .pousada{
   display: block;
   margin-left: 100px;
-  background-image: url(pousadapng2.0\ \(1\).png);
-  width: 50%;
-  height: 800px;
+  max-width: 50%;
+  height: auto;
   background-size: cover;
   /* mix-blend-mode: multiply; */
 }
