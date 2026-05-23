@@ -8,10 +8,13 @@
 }
 
 .navigation {
+  display: flex;
   padding: 12px;
   background: linear-gradient(to right, #e49a1b, rgb(221, 189, 9));
   justify-content: space-between;
-  display: flex;
+  font-family: "BJCree", serif;
+  font-weight: 00;
+  font-style: normal;
 }
 
 a {
@@ -35,16 +38,14 @@ a:hover {
   background-color: gold;
 }
 
-.pousada{
-  display: block;
-  margin-left: 100px;
-  max-width: 50%;
-  height: auto;
-  background-size: cover;
-  /* mix-blend-mode: multiply; */
+/* .img-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
 }
 
-/* Caixa de pesquisa */
 .search-box {
   display: flex;
   justify-content: flex-start;
@@ -59,7 +60,51 @@ a:hover {
   overflow: hidden;
 }
 
+.pousada{
+  display: block;
+  margin-left: 0px;
+  max-width: 45%;
+  height: auto;
+  /* background-size: cover; */
+  /* mix-blend-mode: multiply; 
+} */
+
+.search-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  max-width: 560px;
+  width: 100%;
+  margin: 0;
+  background: #fff;
+  border-radius: 999px;
+  border: 2px solid gold;
+  box-shadow: 0 4px 14px gold;
+  overflow: hidden;
+}
+
+.pousada {
+  display: block;         
+  margin-left: 0;         
+  max-width: 45%;         
+  height: auto;
+  
+}
+.img-button > div {
+  display: flex;          
+  align-items: center;    
+  justify-content: center;
+  gap: 30px;              
+  max-width: 1200px;      
+  margin: 0 auto;         
+}
+
 .search-box input[type="text"] {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  max-width: 560px;
   flex: 1;
   min-width: 0;
   border: none;
