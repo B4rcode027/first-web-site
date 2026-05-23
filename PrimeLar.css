@@ -35,16 +35,6 @@ a:hover {
   background-color: gold;
 }
 
-/* .pousada {
-  width: 50%;
-  height: 500px;
-  border-radius: 25px;
-  background:
-  linear-gradient(to top, rgba(0, 0, 0, 0.075),  transparent),
-  url('pousadapng2.0.png');
-   background-size: cover;
-}*/
-
 .pousada{
   display: block;
   margin-left: 100px;
@@ -57,6 +47,7 @@ a:hover {
 /* Caixa de pesquisa */
 .search-box {
   display: flex;
+  justify-content: flex-start;
   align-items: stretch;
   max-width: 560px;
   width: 90%;
@@ -180,7 +171,7 @@ a:hover {
   
 }
 .txts:hover {
-  transform: scale(1.10) rotate(360deg);
+  transform: scale(1.10) rotate(6deg);
 }
 
 .uppercase {
