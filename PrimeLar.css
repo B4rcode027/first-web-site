@@ -216,7 +216,7 @@ a:hover {
   
 }
 .txts:hover {
-  transform: scale(1.10) rotate(6deg);
+  transform: scale(1.10) rotate(3deg);
 }
 
 .uppercase {
