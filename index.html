@@ -22,15 +22,15 @@
 
   <div>
 
-    <button class="botao"><a href="#aluguel">Alugar</button></a>
+    <button class="botao nav"><a href="#aluguel">Alugar</button></a>
 
-    <button class="botao"><a href="#comprar">Comprar</button></a>
+    <button class="botao nav"><a href="#comprar">Comprar</button></a>
 
-    <button class="botao"><a href="#">Anunciar</button></a>
+    <button class="botao nav"><a href="#">Anunciar</button></a>
 
-    <button class="botao"><a href="#">Financiamento</button></a>
+    <button class="botao nav"><a href="#">Financiamento</button></a>
 
-    <button class="botao"><a href="#">Ajuda</button></a>
+    <button class="botao nav"><a href="#">Ajuda</button></a>
 
   </div>
 
@@ -43,16 +43,32 @@
   </div>
 
 </section>
+
 <section class="img-button">
+
   <div>
+
       <form class="search-box" id="searchForm">
-        <input type="text" id="searchInput" placeholder="Busque rua, bairro ou cidade...">
-        <button type="submit" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i>
+
+        <input type="text" id="searchInput" placeholder="Busque rua, bairro ou cidade..." list="itens" data-search="">
+
+        <button type="button" id="searchBtn" onclick="redirecionar()"><i class="fa-solid fa-magnifying-glass"></i>
+
         </button>
+
+          <datalist id="itens">
+            <!-- <option class="item" value="Apartamento do Minha Casa Minha Vida" href="#p-aluguel">
+            <option class="item" value="Seu pet também merece um novo lar">
+            <option class="item" value="A Varanda com Vista dos Sonhos">
+            <option class="item" value="Procurando Imóveis Mobiliados?"> -->
+          </datalist>    
+
       </form>
 
       <img class="pousada" src="./pousadapng2.0 (1).png" alt="">
+
     </div>
+
 </section>
 
 <h1 class="categorias">Categorias</h1>
