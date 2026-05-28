@@ -33,6 +33,7 @@ function redirecionar() {
     console.log(href)
     window.location.hash = href
     searchForm.setAttribute("data-search", "")
+    searchForm.reset()
   } else{
     alert("Nenhum item selecionado")
   }
