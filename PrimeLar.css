@@ -301,7 +301,7 @@ a:hover {
 
 section > a {
   display: block; /* Transforma em bloco para poder centralizar */ 
-  margin: 10px; Centraliza o link (e o botão) na tela
+  margin: 10px; /* Centraliza o link (e o botão) na tela */
   text-decoration: none;
 }
 
@@ -328,3 +328,9 @@ section > a {
   font-weight: 400;
   font-style: normal;
 } 
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
