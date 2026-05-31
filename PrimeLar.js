@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+alert ("Ola Mundo!")
+=======
 // javascript para caixa de pesquisa
 let searchForm = document.getElementById("searchForm")
 const itens = document.querySelectorAll(".item");
@@ -50,3 +53,9 @@ searchForm.addEventListener("input", (e) => {
   })
 })
 // fim do codigo da caixa de pesquisa
+
+//fim do codigo login API
+
+const loginForm = document.getElementById("loginForm") // retorna null
+loginForm.addEventListener(...) // ERRO: null não tem addEventListener
+>>>>>>> 17815eca325499eeec70bb052fbcbb8789a441cd
