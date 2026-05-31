@@ -50,8 +50,3 @@ searchForm.addEventListener("input", (e) => {
   })
 })
 // fim do codigo da caixa de pesquisa
-
-//fim do codigo login API
-
-const loginForm = document.getElementById("loginForm") // retorna null
-loginForm.addEventListener(...) // ERRO: null não tem addEventListener
