@@ -329,12 +329,6 @@ section > a {
   font-style: normal;
 } 
 
-.footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #f1f1f1;
-}
-
 /* Anúncios de imóveis */
 .anuncios-grid {
   display: flex;
@@ -473,3 +467,232 @@ section > a {
   display: block;
   width: 100%;
 }
+
+    /* ==================== ESTILO DO NOVO RODAPÉ (INTEGRADO) ==================== */
+    .real-estate-footer {
+        background-color: #1a1a20; /* Tom escuro levemente diferente do fundo do site para dar profundidade */
+        color: #f8fafc;
+        font-family: 'Open Sans', sans-serif;
+        padding: 60px 0 20px 0;
+        margin-top: 80px;
+        border-top: 2px solid #c5a880; /* Linha de destaque bronze no topo */
+    }
+
+    /* Container principal com limite de largura */
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 25px;
+    }
+
+    /* Grid das Colunas */
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr; /* Colunas externas ligeiramente maiores */
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    /* Títulos das colunas */
+    .footer-column h3 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #c5a880; /* Bronze/Dourado sofisticado */
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    /* Linha decorativa abaixo do título da coluna */
+    .footer-column h3::after {
+        content: '';
+        display: block;
+        width: 35px;
+        height: 2px;
+        background-color: #c5a880;
+        margin-top: 8px;
+    }
+
+    /* Estilo da primeira coluna (Sobre / Logo) */
+    .footer-about .footer-logo {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .footer-about .footer-logo i {
+        color: #c5a880;
+    }
+
+    .footer-about p {
+        color: #94a3b8;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    /* Selo do CRECI */
+    .creci-badge {
+        display: inline-block;
+        border: 1px solid #c5a880;
+        color: #c5a880;
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    /* Listas de Links (Colunas 2 e 3) */
+    .footer-links ul {
+        list-style: none;
+    }
+
+    .footer-links ul li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links ul li a {
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    /* Efeito hover nos links */
+    .footer-links ul li a:hover {
+        color: #ffffff;
+        transform: translateX(4px); /* Desloca suavemente para a direita */
+    }
+
+    .footer-links ul li a i {
+        font-size: 0.8rem;
+        color: #c5a880;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .footer-links ul li a:hover i {
+        opacity: 1;
+    }
+
+    /* Coluna 4 (Contatos e Atendimento) */
+    .footer-contact .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .footer-contact .contact-item i {
+        color: #c5a880;
+        font-size: 1.2rem;
+        margin-top: 3px;
+    }
+
+    .footer-contact .contact-item p {
+        color: #94a3b8;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .footer-contact .contact-item strong {
+        color: #ffffff;
+        display: block;
+        margin-bottom: 2px;
+    }
+
+    /* Botão de WhatsApp rápido */
+    .footer-whatsapp-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background-color: #128c7e;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin-top: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .footer-whatsapp-btn:hover {
+        background-color: #075e54;
+    }
+
+    /* Barra Inferior (Direitos autorais e redes sociais) */
+    .footer-bottom {
+        border-top: 1px solid #2d2d39;
+        margin-top: 40px;
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .footer-bottom p {
+        color: #64748b;
+        font-size: 0.85rem;
+    }
+
+    /* Ícones de Redes Sociais */
+    .social-icons {
+        display: flex;
+        gap: 15px;
+    }
+
+    .social-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background-color: #2d2d39;
+        color: #94a3b8;
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        background-color: #c5a880;
+        color: #1a1a20;
+        transform: translateY(-3px);
+    }
+
+    /* ==================== RESPONSIVIDADE DO RODAPÉ ==================== */
+    @media (max-width: 992px) {
+        .footer-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 35px;
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+    }
