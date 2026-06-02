@@ -30,4 +30,4 @@ Para visualizar este projeto na sua máquina local, basta seguir os passos abaix
 
 1. Faça o clone deste repositório ou baixe os arquivos:
    ```bash
-   git clone [https://github.com/Locked002/first-web-site.git]
+   git clone [https://github.com/GabrielPereiraFreire/first-web-site.git]
