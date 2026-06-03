@@ -1,0 +1,15 @@
+.header {
+  color: #fff;
+  min-height: 88vh;
+  background: url(./BackgroundInicio.png) center / cover no-repeat;
+}
+
+.lista {
+  display: flex;
+  flex-direction: row;
+}
+
+.ButReserva {
+  display: flex;
+  justify-content: space;
+}
