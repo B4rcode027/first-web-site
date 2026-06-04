@@ -1,15 +1,52 @@
 .header {
   color: #fff;
   min-height: 88vh;
-  background: url(./BackgroundInicio.png) center / cover no-repeat;
+  /* Garante que o conteúdo de dentro fique posicionado corretamente sobre o fundo */
+  position: relative; 
+  /* Esconde as bordas borradas da imagem que tentarem "vazar" para fora do header */
+  overflow: hidden; 
 }
 
+/* Criamos a camada para a imagem de fundo */
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(./BackgroundInicio.png) center / cover no-repeat;
+  /* Aplica o desfoque apenas aqui */
+  filter: blur(1px); 
+  /* Coloca a imagem atrás do texto (o texto por padrão fica no nível 0 ou superior) */
+  z-index: 1; 
+  /* Opcional: aumenta um pouco o tamanho para sumir com as bordas brancas do desfoque */
+  transform: scale(1.1); 
+}
+
+/* Precisamos garantir que a navegação fique ACIMA da camada borrada */
 .lista {
   display: flex;
   flex-direction: row;
+  position: relative;
+  z-index: 2; /* Maior que o z-index da imagem */
 }
 
+/* Extra: Correção de um pequeno erro de digitação no seu código original */
 .ButReserva {
   display: flex;
-  justify-content: space;
+  /* O correto é space-between, space-around ou space-evenly. 
+     Se era apenas para centralizar o texto do botão, use center, ou nem precisa de flex aqui */
+  justify-content: center; 
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden; 
 }
