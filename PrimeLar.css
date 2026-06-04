@@ -696,3 +696,75 @@ section > a {
             align-items: center;
         }
     }
+
+    /* ==================== CONFIGURAÇÃO PARA CELULARES (TELAS ATÉ 768px) ==================== */
+@media screen and (max-width: 768px) {
+  
+  
+  .logo {
+    width: 60%; 
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  
+  .navigation {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .navigation > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .botao.nav, .botao {
+    width: 100%; 
+    box-sizing: border-box;
+  }
+
+  
+  .img-button > div {
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 20px;
+  }
+
+  .search-box {
+    max-width: 100%; 
+  }
+
+  .pousada {
+    max-width: 80%; 
+    margin: 0 auto;
+  }
+
+  
+  .links-rapidos, .vendas {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .categoria1, .categoria2, .categoria3, .categoria4, .container-venda {
+    width: 100%; 
+    max-width: 340px; 
+
+ 
+  .padrao {
+    width: 90%;
+    padding: 15px;
+    border-radius: 20px; 
+    box-sizing: border-box;
+  }
+  
+  .padrao p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: justify;
+  }
+}
