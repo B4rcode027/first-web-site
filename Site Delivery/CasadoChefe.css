@@ -9,25 +9,70 @@
 .topbar {
 display: flex;
 justify-content: space-around;
-border: 1px solid red;
+padding: 10px;
 }
 
-.logo {
-  border: 1px solid blue;
+#logo {
+  display: flex;
   font-family: "BJCree", serif;
   font-weight: 900;
   font-style: normal;
+  font-size: 1rem;
 }
 
 .nav-list {
   display: flex;
   gap: 28px;
+  padding: 12px;
   font-family: "BJCree", serif;
   font-weight: 600;
   font-style: normal;
 }
+
+.nav-list a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
 ul {
   list-style-type: none;
+}
+
+.listah {
+  position: relative;
+  padding: 0.3rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  background: none;
+  border: 1px solid orange;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.listah {
+  background: linear-gradient(orange 0 0) no-repeat calc(200% - var(--p, 0%))
+    100% / 200% var(--p, 0.2em);
+  transition: 0.3s var(--t, 0s),
+    background-position 0.3s calc(0.3s - var(--t, 0s));
+}
+
+.listah:hover {
+  --p: 100%;
+  --t: 0.3s;
+  color: #fff;
+}
+
+#list {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  font-family: "BJCree", serif;
+  font-weight: 600;
+  font-style: normal;
+  padding: 12px;
 }
 
 .nav-reserva {
@@ -42,6 +87,54 @@ ul {
   box-shadow: 20px;
 }
 
+.conteiner {
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+  font-style: normal;
+  font-family: "BJCree", serif;
+  font-weight: 600;
+}
+
+.tag {
+  color: orange;
+  font-weight: 600;
+  color: orange;
+  text-shadow:
+    -1px -1px 0 rgb(71, 71, 71),
+     1px -1px 0 rgb(63, 62, 62),
+    -1px  1px 0 rgb(28, 28, 28),
+     1px  1px 0 rgb(0, 0, 0);
+  
+}
+
+.butao a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.butao {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-family: "BJCree", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+/* .tag {
+  display: flex;
+  justify-content: center;
+} */
+
+/* .titulo {
+  display: flex;
+  justify-content: center;
+} */
+
+/* .desc {
+  display: flex;
+  justify-content: center;
+} */
 * {
   margin: 0;
   padding: 0;
