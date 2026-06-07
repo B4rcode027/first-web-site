@@ -2,10 +2,10 @@
 let searchForm = document.getElementById("searchForm")
 const itens = document.querySelectorAll(".item");
 let botoes = document.querySelectorAll(".nav")
-console.log(botoes)
+
 let input = document.getElementById("searchInput")
 let datalist = document.getElementById("itens")
-console.log(datalist)
+
 botoes.forEach((botao, index) => {
   let href = botao.querySelector("a").getAttribute("href")
   datalist.innerHTML += `<option class="item" value="${botao.textContent.trim()}" href="${href}" onclick="selecionarItem('${href}')">`
@@ -17,7 +17,7 @@ botoes.forEach((botao, index) => {
 
 searchForm.addEventListener("input",function(e) {
   let itenss = document.querySelectorAll(".item")
-  console.log(e.target.value)
+  
   let valor=e.target.value.toLowerCase()
   let selecionado = Array.from(itenss).find(item => item.value.toLowerCase() === valor)
   if (selecionado) {
@@ -27,7 +27,7 @@ searchForm.addEventListener("input",function(e) {
   }
 })
 function redirecionar() {
-  console.log("redirecionar")
+  
   let href = searchForm.getAttribute("data-search")
   if (href) {
     console.log(href)
