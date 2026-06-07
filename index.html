@@ -48,28 +48,23 @@
 
   <div>
 
-      <form class="search-box" id="searchForm">
-
-        <input type="text" id="searchInput" placeholder="Busque rua, bairro ou cidade..." list="itens" data-search="">
-
-        <button type="button" id="searchBtn" onclick="redirecionar()"><i class="fa-solid fa-magnifying-glass"></i>
-
-        </button>
-
-          <datalist id="itens">
-            <!-- <option class="item" value="Apartamento do Minha Casa Minha Vida" href="#p-aluguel">
-            <option class="item" value="Seu pet também merece um novo lar">
-            <option class="item" value="A Varanda com Vista dos Sonhos">
-            <option class="item" value="Procurando Imóveis Mobiliados?"> -->
-          </datalist>    
-
-      </form>
+      <div class="search-wrapper">
+        <form class="search-box" id="searchForm">
+          <input type="text" id="searchInput" placeholder="Busque rua, bairro ou cidade..." autocomplete="off">
+          <button type="button" id="searchBtn" aria-label="Buscar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <div id="searchDropdown" class="search-dropdown" role="listbox"></div>
+      </div>
 
       <img class="pousada" src="./pousadapng2.0 (1).png" alt="">
 
     </div>
 
 </section>
+
+<section id="searchResults" class="search-results hidden" aria-live="polite"></section>
 
 <h1 class="categorias">Categorias</h1>
 
