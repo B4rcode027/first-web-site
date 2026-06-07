@@ -1,29 +1,28 @@
 // login.js
 const loginForm = document.getElementById("loginbtn")
-console.log(loginForm)
-//if (loginForm) {
+
+if (loginForm) {
   loginForm.addEventListener("click", async function (event) {
-    console.log("submit")
     event.preventDefault()
 
     const data = {
       username: document.getElementById("username").value,
-      password: document.getElementById("senha").value,
+      senha: document.getElementById("senha").value, // corrigido: era "password"
     }
 
     try {
       const response = await fetch("http://localhost:3000/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       })
 
       const result = await response.json()
 
       if (response.ok) {
-        localStorage.setItem("token", result.token)
+        if (result.token) {
+          localStorage.setItem("token", result.token)
+        }
         alert("Login realizado com sucesso!")
         window.location.href = "./index.html"
       } else {
@@ -34,4 +33,4 @@ console.log(loginForm)
       alert("Falha ao conectar com o servidor.")
     }
   })
-//}
+}

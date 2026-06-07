@@ -1,80 +1,77 @@
 const http = require("http")
-const server = http.createServer((req, res) => {
-  if (req.method === "POST" && req.url === "/login") {
+
+function lerBody(req) {
+  return new Promise((resolve, reject) => {
     let body = ""
-    req.on("data", (chunk) => {
-      body += chunk.toString()
-    })
+    req.on("data", (chunk) => (body += chunk.toString()))
     req.on("end", () => {
-      const jsonData = JSON.parse(body)
-      if (jsonData.username === "admin" && jsonData.senha === "senha") {
-        res.writeHead(200, { "Content-Type": "application/json" })
-        res.end(JSON.stringify({ sucesso: true, data: jsonData }))
-      } else {
-        res.writeHead(401, { "Content-Type": "application/json" })
-        res.end(
-          JSON.stringify({ sucesso: false, message: "Credenciais inválidas" }),
-        )
+      try {
+        resolve(JSON.parse(body))
+      } catch {
+        reject(new Error("JSON inválido"))
       }
     })
-    return
+    req.on("error", reject)
+  })
+}
+
+function responder(res, status, payload) {
+  res.writeHead(status, { "Content-Type": "application/json" })
+  res.end(JSON.stringify(payload))
+}
+
+const server = http.createServer(async (req, res) => {
+  if (req.method !== "POST") {
+    return responder(res, 404, {
+      sucesso: false,
+      message: "Rota não encontrada",
+    })
   }
-  if (req.method === "POST" && req.url === "/cadastrar") {
-    let body = ""
-    req.on("data", (chunk) => {
-      body += chunk.toString()
-    })
-    req.on("end", () => {
-      const jsonData = JSON.parse(body)
 
-      const camposVazios = []
-      const chaves = Object.keys(jsonData)
-
-      for (const chave of chaves) {
-        if (
-          jsonData[chave] === undefined ||
-          jsonData[chave].toString().trim() === ""
-        ) {
-          camposVazios.push(chave)
-        }
-      }
-      // if (jsonData.username === '' || jsonData.email === '' || jsonData.senha === '' || jsonData.csenha === '') {
-      //     res.writeHead(400,{ 'Content-Type': 'application/json'});
-      //     res.end(JSON.stringify({ sucesso: false, message: 'Todos os campos são obrigatórios' }));
-      //     return;
-      // }
-
-      if (camposVazios.length > 0) {
-        res.writeHead(400, { "Content-Type": "application/json" })
-        res.end(
-          JSON.stringify({
-            sucesso: false,
-            message: `Os seguintes campos são obrigatórios: ${camposVazios.join(", ")}`,
-          }),
-        )
-        return
-      }
-
-      if (jsonData.senha !== jsonData.csenha) {
-        res.writeHead(401, { "Content-Type": "application/json" })
-        res.end(
-          JSON.stringify({
-            sucesso: false,
-            message: "As senhas não coincidem",
-          }),
-        )
-        return
-      }
-      res.writeHead(200, { "Content-Type": "application/json" })
-      res.end(
-        JSON.stringify({
-          sucesso: true,
-          message: "Cadastro realizado com sucesso",
-        }),
-      )
-    })
-    return
+  let dados
+  try {
+    dados = await lerBody(req)
+  } catch {
+    return responder(res, 400, { sucesso: false, message: "Body inválido" })
   }
+
+  if (req.url === "/login") {
+    const { username, senha } = dados
+    if (username === "admin" && senha === process.env.ADMIN_SENHA) {
+      return responder(res, 200, { sucesso: true, data: { username } })
+    }
+    return responder(res, 401, {
+      sucesso: false,
+      message: "Credenciais inválidas",
+    })
+  }
+
+  if (req.url === "/cadastrar") {
+    const camposVazios = Object.keys(dados).filter(
+      (k) => dados[k] === undefined || dados[k].toString().trim() === "",
+    )
+
+    if (camposVazios.length > 0) {
+      return responder(res, 400, {
+        sucesso: false,
+        message: `Os seguintes campos são obrigatórios: ${camposVazios.join(", ")}`,
+      })
+    }
+
+    if (dados.senha !== dados.csenha) {
+      return responder(res, 400, {
+        sucesso: false,
+        message: "As senhas não coincidem",
+      })
+    }
+
+    return responder(res, 201, {
+      sucesso: true,
+      message: "Cadastro realizado com sucesso",
+    })
+  }
+
+  responder(res, 404, { sucesso: false, message: "Rota não encontrada" })
 })
 
 server.listen(3000, "localhost", () => {
