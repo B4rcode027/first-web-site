@@ -2,7 +2,8 @@ const http = require("http")
 const url = require("url")
 const { buscarItens } = require("./dados")
 
-const PORT = 3001
+// Se houver uma porta da nuvem, usa ela; se não, usa a 3001 local
+const PORT = process.env.PORT || 3001
 
 function enviarJson(res, status, dados) {
   res.writeHead(status, {
@@ -63,7 +64,6 @@ const server = http.createServer((req, res) => {
   })
 })
 
-server.listen(PORT, "localhost", () => {
-  console.log(`API de pesquisa rodando em http://localhost:${PORT}/`)
-  console.log(`Exemplo: http://localhost:${PORT}/api/pesquisa?q=ribeirao`)
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`API de pesquisa rodando na porta ${PORT}`)
 })
