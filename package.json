@@ -6,6 +6,6 @@
     "start": "node server.js"
   },
   "dependencies": {
-    // Suas dependências aqui, se houver alguma
+    
   }
 }
