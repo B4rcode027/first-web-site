@@ -1,4 +1,4 @@
-const API_PESQUISA = "http://localhost:3001"
+const API_PESQUISA = "https://first-web-site-1.onrender.com" // 💻 Alterado para a URL do Render
 
 const searchForm = document.getElementById("searchForm")
 const searchInput = document.getElementById("searchInput")
@@ -67,11 +67,11 @@ async function executarPesquisa(termo) {
 
     renderizarResultados(data.resultados, data.query)
   } catch {
+    // Mensagem atualizada: focada em instabilidade de rede/servidor externo
     searchResults.innerHTML = `
       <p class="search-erro">
         <i class="fa-solid fa-triangle-exclamation"></i>
-        Não foi possível conectar à API. Inicie o servidor com:
-        <code>cd "API PESQUISA" && node server.js</code>
+        Não foi possível conectar ao servidor de busca. Tente novamente em instantes.
       </p>`
   }
 }
@@ -159,9 +159,10 @@ function esconderDropdown() {
 
 function mostrarErroApi() {
   if (!searchDropdown) return
+  // Mensagem de erro simplificada para o dropdown na nuvem
   searchDropdown.innerHTML = `
     <p class="search-dropdown-erro">
-      API offline. Execute: <code>node server.js</code> na pasta API PESQUISA
+      Servidor temporariamente indisponível.
     </p>`
   searchDropdown.classList.add("ativo")
 }
