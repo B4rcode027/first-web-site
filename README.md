@@ -37,8 +37,7 @@ O desenvolvimento deste ecossistema me permitiu aplicar conceitos avançados de 
 
 ### 1. Clonar o Repositório
 ```bash
-git clone [https://github.com/B4rcode027/first-web-site.git](https://github.com/B4rcode027/first-web-site.git)
-
+git clone https://github.com/B4rcode027/first-web-site.git
 
 📬 Contato
 Se quiser trocar uma ideia sobre desenvolvimento web, arquitetura de APIs ou acompanhar meus estudos, você pode me encontrar por aqui:
