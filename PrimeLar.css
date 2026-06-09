@@ -10,11 +10,36 @@
 .navigation {
   display: flex;
   padding: 12px;
-  background: linear-gradient(to right, #e49a1b, rgb(221, 189, 9));
+  background-color: #1a1a20; /* Mesma cor escura do rodapé */
+  border-bottom: 2px solid #c5a880; /* Linha fina dourada idêntica à do rodapé */
   justify-content: space-between;
   font-family: "BJCree", serif;
-  font-weight: 400; /* Corrigido de 00 para 400 */
+  font-weight: 400; 
   font-style: normal;
+}
+
+.navigation .botao {
+  background: transparent;
+  box-shadow: none;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+
+.navigation a {
+  color: #f8fafc;
+  transition: color 0.3s ease;
+}
+
+
+.navigation .botao:hover a,
+.navigation a:hover {
+  color: #c5a880;
+}
+
+
+.navigation .botao:hover {
+  background-color: rgba(197, 168, 128, 0.1); 
 }
 
 a {
@@ -34,9 +59,6 @@ a:hover {
   font-style: normal;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   cursor: pointer;
-}
-.botao:hover {
-  background-color: gold;
 }
 
 /* .img-button {
@@ -124,8 +146,8 @@ a:hover {
 .search-box #searchBtn {
   flex-shrink: 0;
   border: none;
-  background: gold;
-  color: #fff;
+  background: #c5a880; /* Dourado do rodapé */
+  color: #25252b;      /* Ícone em cinza-escuro para contraste */
   padding: 0 1.1rem;
   font-size: 1.15rem;
   cursor: pointer;
@@ -247,37 +269,44 @@ a:hover {
 }
 
 .search-results-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  display: grid;
+  /* Cria colunas dinâmicas de no mínimo 280px */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 100%;
+  /* Centraliza os cards horizontalmente na tela */
+  justify-content: center; 
 }
 
 .search-result-card {
-  width: 280px;
+  width: 100%; 
+  max-width: 320px; 
   background: #fff;
-  border: 2px solid gold;
+  border: 2px solid #c5a880; /* Atualizado para o dourado do rodapé */
   border-radius: 12px;
   padding: 1rem 1.1rem;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   font-family: "BJCree", serif;
+  box-sizing: border-box; 
 }
 
 .search-result-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(228, 154, 27, 0.35);
+  /* Sombra atualizada com o novo tom bronze/dourado */
+  box-shadow: 0 8px 20px rgba(197, 168, 128, 0.35); 
 }
 
 .search-result-tipo {
   display: inline-block;
   font-size: 0.7rem;
   text-transform: uppercase;
-  background: linear-gradient(to right, #e49a1b, rgb(221, 189, 9));
-  color: #111;
+  background: #c5a880; /* Cor sólida do rodapé */
+  color: #25252b;       /* Texto escuro para garantir a leitura */
   padding: 3px 8px;
   border-radius: 4px;
   margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .search-result-card h3 {
@@ -499,24 +528,28 @@ section > a {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
-  border-radius: 30px 30px 30px 30px; /*arredondar bordas */
-  border: 4px solid gold; /* Uma borda azul de 4 pixels */
-  padding: 5px; /* Espaço entre a imagem e a borda */
-  background: linear-gradient(to right, #e49a1b, rgb(221, 189, 9));
+  width: 60%; /* Aumentamos levemente para o texto não ficar tão espremido */
+  border-radius: 20px; 
+  border: 2px solid #c5a880; /* Borda fina com o dourado do rodapé */
+  padding: 30px; /* Mais espaço interno para o texto respirar */
+  background-color: #1a1a20; /* Fundo escuro idêntico ao do rodapé */
+  box-sizing: border-box;
 }
 
-.h1-aluguel{
+.h1-aluguel {
   font-family: "BJCree", serif;
   font-weight: 900;
   font-style: normal;
+  color: #c5a880; /* Dourado bronze do rodapé para o título */
+  margin-bottom: 15px; /* Espaço entre o título e o texto */
 }
 
 .p-aluguel {
   font-family: "BJCree", serif;
   font-weight: 400;
   font-style: normal;
-} 
+  color: #f8fafc; /* Branco suave para o parágrafo */
+}
 
 /* Anúncios de imóveis */
 .anuncios-grid {
