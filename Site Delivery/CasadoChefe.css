@@ -1,10 +1,8 @@
 :root {
   --main-bg-color: rgb(255, 255, 255);
+  --shadow: 0 12px 40px rgba(28, 20, 16, 0.08);
 }
 
-:root {
-  --shadow: 0 12px 40px rgba(28, 20, 16, 0.08);;
-}
 .header {
   color: #fff;
   min-height: 88vh;
@@ -214,6 +212,19 @@ body {
   display: flex;
   flex-direction: row;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 150px;
   padding: 28px 32px;
+  justify-content: center;
+}
+
+.info-time {
+  display: flex;
+}
+
+.info-ender {
+  display: flex;
+}
+
+.info-tel {
+  display: flex;
 }
