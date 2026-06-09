@@ -33,17 +33,19 @@ O desenvolvimento deste ecossistema me permitiu aplicar conceitos avançados de 
 
 ---
 
-## 🛠️ Como Executar o Projeto
-
-### 1. Clonar o Repositório
-```bash
-git clone https://github.com/B4rcode027/first-web-site.git
-
 📬 Contato
 Se quiser trocar uma ideia sobre desenvolvimento web, arquitetura de APIs ou acompanhar meus estudos, você pode me encontrar por aqui:
 
 Nome: Gabriel Pereira Freire
 
-E-mail: gpereira2019@gmail.com
+E-mail: gabfreiredev@gmail.com
 
 GitHub: B4rcode027
+
+---
+
+## 🛠️ Como Executar o Projeto
+
+### 1. Clonar o Repositório
+```bash
+git clone https://github.com/B4rcode027/first-web-site.git
