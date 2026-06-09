@@ -1,11 +1,11 @@
 :root {
   --main-bg-color: rgb(255, 255, 255);
-  --shadow: 0 12px 40px rgba(28, 20, 16, 0.08);
+  --shadow: 0 12px 40px rgba(10, 8, 6, 0.205);
 }
 
 .header {
   color: #fff;
-  min-height: 88vh;
+  min-height: 75vh;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -184,6 +184,15 @@ ul {
   border-color: white;
 }
 
+.SegundaLogo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 170px;
+  margin-left: 1500px;
+  z-index: 2;
+  width: 30%;
+}
 * {
   margin: 0;
   padding: 0;
@@ -212,9 +221,12 @@ body {
   display: flex;
   flex-direction: row;
   grid-template-columns: repeat(3, 1fr);
-  gap: 150px;
+  gap: 80px;
   padding: 28px 32px;
   justify-content: center;
+  font-family: "BJCree", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .info-time {
@@ -228,3 +240,6 @@ body {
 .info-tel {
   display: flex;
 }
+
+
+@media (max-width: 600px) {}
