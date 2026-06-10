@@ -1,5 +1,5 @@
 @import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
 
 /* ==================== CONFIGURAÇÕES GLOBAIS ==================== */
 * {
@@ -18,6 +18,10 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 /* ==================== BARRA DE NAVEGAÇÃO ==================== */
@@ -300,8 +304,8 @@ section {
 section > a {
   display: block;         
   width: 100%;           
-  max-width: px;      
-  margin: 20px 0;        
+  max-width: 100%;      
+  margin: 20px 0;         
   text-decoration: none;
 }
 
@@ -313,8 +317,8 @@ section > a {
   background-color: #1a1a20;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   text-align: center;
+  margin-bottom: 20px;
 }
-
 
 .h1-aluguel,
 .padrao h1,
@@ -333,6 +337,7 @@ section > a {
   line-height: 1.7;
   font-size: 1rem;
   text-align: justify; 
+} /* Chave fechada corretamente aqui! */
 
 /* ==================== ANÚNCIOS FIXOS DE IMÓVEIS ==================== */
 .anuncios-grid {
@@ -464,6 +469,14 @@ section > a {
   margin-top: 8px;
 }
 
+.footer-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #c5a880;
+  margin-bottom: 15px;
+}
+
 .footer-about p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
 .creci-badge { display: inline-block; border: 1px solid #c5a880; color: #c5a880; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
 .footer-links ul { list-style: none; }
@@ -519,5 +532,5 @@ section > a {
 
 @media (max-width: 576px) {
   .footer-grid { grid-template-columns: 1fr; }
-  .footer-bottom { flex-direction: column; text-align: center; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 15px; }
 }

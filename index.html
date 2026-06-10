@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./PrimeLar.css">
   <link rel="icon" type="image/png" href="./Logo-PrimeLar.ico">
+  
+  <!-- Fontes organizadas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=BJCree:wght@400;500;600;700&family=Oswald:wght@200..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=BJCree:wght@400;500;600;700&family=M+PLUS+U:wght@100..900&family=Oswald:wght@200..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Saira:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&family=Oswald:wght@200..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 
   <title>Prime Lar</title>
 </head>
 <body style="background-color:#35353a;">
 
-  <img class="logo" src="Logo - PrimeLar.png" alt="">
-
 <nav class="navigation">
-  <div class="nav-links-esquerda">
+  <!-- A Logo agora fica dentro da Nav para alinhar corretamente com o CSS flexbox -->
+  <img class="logo" src="Logo - PrimeLar.png" alt="Prime Lar">
+
+  <div class="nav-links-container">
     <button class="botao"><a href="#aluguel">Alugar</a></button>
     <button class="botao"><a href="#comprar">Comprar</a></button>
     <button class="botao"><a href="#anunciar">Anunciar</a></button>
@@ -27,30 +27,26 @@
     <button class="botao"><a href="#ajuda">Ajuda</a></button>
   </div>
 
-  <div class="nav-links-direita">
+  <div class="nav-links-container">
     <button class="botao"><a href="#login">Login</a></button>
-    <button class="botao"><a href="#registro">Registre-se</a></button>
+    <button class="botao botao-destaque"><a href="#registro">Registre-se</a></button>
   </div>
 </nav>
 
 <section class="img-button">
-
   <div>
-
-      <div class="search-wrapper">
-        <form class="search-box" id="searchForm">
-          <input type="text" id="searchInput" placeholder="Busque rua, bairro ou cidade..." autocomplete="off">
-          <button type="button" id="searchBtn" aria-label="Buscar">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-        <div id="searchDropdown" class="search-dropdown" role="listbox"></div>
-      </div>
-
-      <img class="pousada" src="./pousadapng2.0 (1).png" alt="">
-
+    <div class="search-wrapper">
+      <form class="search-box" id="searchForm">
+        <input type="text" id="searchInput" placeholder="Busque rua, bairro ou cidade..." autocomplete="off">
+        <button type="button" id="searchBtn" aria-label="Buscar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <div id="searchDropdown" class="search-dropdown" role="listbox"></div>
     </div>
 
+    <img class="pousada" src="./pousadapng2.0 (1).png" alt="">
+  </div>
 </section>
 
 <section id="searchResults" class="search-results hidden" aria-live="polite"></section>
@@ -58,90 +54,68 @@
 <h1 class="categorias">Categorias</h1>
 
 <section class="links-rapidos">
-
   <!-- Link 1 -->
-
   <a href="https://www.twitch.tv/" target="_blank">
-
     <div class="categoria1">
-
       <p class="txts uppercase">Apartamento do Minha Casa Minha Vida</p>
-
     </div>
-
   </a>
 
   <!-- Link 2 -->
-
   <a href="https://www.twitch.tv/" target="_blank">
-
     <div class="categoria2">
-
       <p class="txts uppercase">Seu pet também merece um novo lar</p>
-
     </div>
-
   </a>
 
   <!-- Link 3 -->
-
   <a href="https://www.twitch.tv/" target="_blank">
-
     <div class="categoria3">
-
       <p class="txts uppercase">A Varanda com Vista dos Sonhos</p>
-
     </div>
-
   </a>
 
   <!-- Link 4 -->
-
   <a href="https://www.twitch.tv/" target="_blank">
-
     <div class="categoria4">
-
       <p class="txts uppercase">Procurando Imóveis Mobiliados?</p>
-
     </div>
-
   </a>
-
 </section>
 
 <div id="aluguel" class="padrao">
-  
   <center>
-
     <h1 class="h1-aluguel">ALUGUEL</h1>
-
   </center>
-
-      <p class="p-aluguel">Como Funciona o Aluguel do seu Novo Imóvel. Encontrar o espaço ideal para morar ou abrir o seu negócio não precisa ser um processo burocrático. Aqui, nós conectamos você ao seu próximo endereço de forma rápida, segura e 100% digital.Veja como é simples alugar o seu imóvel residencial ou comercial: <br><br> 1.Escolha e Agende a Visita:Passo 1.Navegue pelas nossas opções de casas, apartamentos e salas comerciais. Use os filtros para achar a localização e o tamanho ideais. Gostou? Agende uma visita online para conhecer o local de perto, com ou sem corretor. <br><br> 2.Faça a Proposta e Envie os Documentos:Passo 2.Gostou do imóvel? Envie sua proposta de aluguel direto pelo site. Para a análise de crédito, basta anexar seus documentos básicos (RG, CPF e comprovante de renda). O retorno da nossa análise sai em até 24 horas úteis. <br><br> 3.Assinatura Digital do Contrato:Passo 3.Chega de perder tempo em cartórios e filas. O contrato de locação é gerado eletronicamente e você assina de onde estiver, pleo celular ou computador, com total segurança e validade jurídica. <br><br> 4.Vistoria e Entrega das Chaves:Passo 4.Realizamos uma vistoria detalhada com fotos para garantir o estado do imóvel. Tudo aprovado? As chaves são liberadas e você já pode planejar a mudança para a sua nova casa ou empresa!Perguntas Frequentes (FAQ)Quais são as garantias locatícias aceitas?Facilitamos ao máximo para você. Aceitamos seguro fiança (com parcelamento mensal junto ao aluguel), título de capitalização, fiador tradicional ou caução (sujeito à análise do proprietário).O que está incluso no valor do aluguel?No anúncio de cada imóvel, você encontra o valor do aluguel de forma transparente, além das taxas estimadas de condomínio e IPTU. Taxas de consumo (água, luz e gás) são de responsabilidade do inquilino.Sou pessoa jurídica. Posso alugar um imóvel comercial?Com certeza! O processo para empresas é igualmente ágil. Basta enviar o contrato social atualizado, o CNPJ e o faturamento da empresa para nossa análise.Pronto para dar o próximo passo?Clique aqui e confira nossos imóveis disponíveis ou fale agora mesmo com um de nossos consultores pelo WhatsApp.
-    </p>
-
+  <p class="p-aluguel">
+    Como Funciona o Aluguel do seu Novo Imóvel. Encontrar o espaço ideal para morar ou abrir o seu negócio não precisa ser um processo burocrático. Aqui, nós conectamos você ao seu próximo endereço de forma rápida, segura e 100% digital. Veja como é simples alugar o seu imóvel residencial ou comercial: <br><br> 
+    1. Escolha e Agende a Visita: Navegue pelas nossas opções de casas, apartamentos e salas comerciais. Use os filtros para achar a localização e o tamanho ideais. Gostou? Agende uma visita online para conhecer o local de perto, com ou sem corretor. <br><br> 
+    2. Faça a Proposta e Envie os Documentos: Gostou do imóvel? Envie sua proposta de aluguel direto pelo site. Para a análise de crédito, basta anexar seus documentos básicos (RG, CPF e comprovante de renda). O retorno da nossa análise sai em até 24 horas úteis. <br><br> 
+    3. Assinatura Digital do Contrato: Chega de perder tempo em cartórios e filas. O contrato de locação é gerado eletronicamente e você assina de onde estiver, pelo celular ou computador, com total segurança e validade jurídica. <br><br> 
+    4. Vistoria e Entrega das Chaves: Realizamos uma vistoria detalhada com fotos para garantir o estado do imóvel. Tudo aprovado? As chaves são liberadas e você já pode planejar a mudança para a sua nova casa ou empresa! <br><br>
+    <strong>Perguntas Frequentes (FAQ)</strong><br>
+    Quais são as garantias locatícias aceitas? Facilitamos ao máximo para você. Aceitamos seguro fiança (com parcelamento mensal junto ao aluguel), título de capitalização, fiador tradicional ou caução (sujeito à análise do proprietário).<br>
+    O que está incluso no valor do aluguel? No anúncio de cada imóvel, você encontra o valor do aluguel de forma transparente, além das taxas estimadas de condomínio e IPTU. Taxas de consumo (água, luz e gás) são de responsabilidade do inquilino.<br>
+    Sou pessoa jurídica. Posso alugar um imóvel comercial? Com certeza! O processo para empresas é igualmente ágil. Basta enviar o contrato social atualizado, o CNPJ e o faturamento da empresa para nossa análise.<br><br>
+    Pronto para dar o próximo passo? Clique aqui e confira nossos imóveis disponíveis ou fale agora mesmo com um de nossos consultores pelo WhatsApp.
+  </p>
 </div>
 
 <br><br><br>
 
 <div id="comprar" class="padrao">
-
   <center><h1>COMPRAR</h1></center>
-
-    <p>Compra de Imóveis: Segurança, Planejamento e Realização
-
-  Comprar um imóvel é uma das decisões mais importantes da vida. Seja para morar, investir ou conquistar a independência financeira, esse processo envolve planejamento, análise e segurança em cada etapa. Por isso, contar com informações claras e apoio especializado faz toda a diferença. <br><br>
-
-  Antes de fechar negócio, é fundamental avaliar fatores como localização, infraestrutura da região, valorização do imóvel, documentação e condições de pagamento. Um bom planejamento financeiro ajuda a escolher a melhor opção sem comprometer o orçamento, garantindo tranquilidade e estabilidade no futuro. <br><br>
-
-  Além disso, o mercado imobiliário oferece oportunidades para diferentes perfis e objetivos. Apartamentos, casas, terrenos e imóveis comerciais podem representar não apenas qualidade de vida, mas também um investimento sólido e duradouro. <br><br>
-
-  Outro ponto essencial é a análise documental. Verificar a regularidade do imóvel, certidões e registros evita problemas futuros e garante uma compra segura. Por isso, ter o acompanhamento de profissionais especializados traz mais confiança durante toda a negociação. <br><br>
-
-  A compra de um imóvel vai muito além de adquirir um bem: é a realização de sonhos, a construção de patrimônio e a conquista de novas possibilidades. Com planejamento e orientação adequada, esse momento pode ser vivido com segurança, tranquilidade e satisfação.</p>
+  <p>
+    Compra de Imóveis: Segurança, Planejamento e Realização. <br><br>
+    Comprar um imóvel é uma das decisões mais importantes da vida. Seja para morar, investir ou conquistar a independência financeira, esse processo envolve planejamento, análise e segurança em cada etapa. Por isso, contar com informações claras e apoio especializado faz toda a diferença. <br><br>
+    Antes de fechar negócio, é fundamental avaliar fatores como localização, infraestrutura da região, valorização do imóvel, documentação e condições de pagamento. Um bom planejamento financeiro ajuda a escolher a melhor opção sem comprometer o orçamento, garantindo tranquilidade e estabilidade no futuro. <br><br>
+    Além disso, o mercado imobiliário oferece oportunidades para diferentes perfis e objetivos. Apartamentos, casas, terrenos e imóveis comerciais podem representar não apenas qualidade de vida, mas também um investimento sólido e duradouro. <br><br>
+    Outro ponto essencial é a análise documental. Verificar a regularidade do imóvel, certidões e registros evita problemas futuros e garante uma compra segura. Por isso, ter o acompanhamento de profissionais especializados traz mais confiança durante toda a negociação. <br><br>
+    A compra de um imóvel vai muito além de adquirir um bem: é a realização de sonhos, a construção de patrimônio e a conquista de novas possibilidades. Com planejamento e orientação adequada, esse momento pode ser vivido com segurança, tranquilidade e satisfação.
+  </p>
 </div>
 
-    <!-- NOVO RODAPÉ INTEGRADO PRIME LAR -->
+<!-- RODAPÉ INTEGRADO PRIME LAR -->
 <footer class="real-estate-footer">
   <div class="footer-container">
     <div class="footer-grid">
@@ -159,10 +133,10 @@
       <div class="footer-column footer-links">
         <h3>Encontre Imóveis</h3>
         <ul>
-          <li><a href="#aluguel"><i class="fa-solid fa-chevron-right"></i>Apartamentos</a></li>
-          <li><a href="#comprar"><i class="fa-solid fa-chevron-right"></i>Casas em Condomínio</a></li>
-          <li><a href="#comprar"><i class="fa-solid fa-chevron-right"></i>Coberturas</a></li>
-          <li><a href="./anunciar.html"><i class="fa-solid fa-chevron-right"></i>Lançamentos</a></li>
+          <li><a href="#aluguel"><i class="fa-solid fa-chevron-right"></i> Apartamentos</a></li>
+          <li><a href="#comprar"><i class="fa-solid fa-chevron-right"></i> Casas em Condomínio</a></li>
+          <li><a href="#comprar"><i class="fa-solid fa-chevron-right"></i> Coberturas</a></li>
+          <li><a href="./anunciar.html"><i class="fa-solid fa-chevron-right"></i> Lançamentos</a></li>
         </ul>
       </div>
 
@@ -170,10 +144,10 @@
       <div class="footer-column footer-links">
         <h3>A Imobiliária</h3>
         <ul>
-          <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Sobre Nós</a></li>
-          <li><a href="./anunciar.html"><i class="fa-solid fa-chevron-right"></i>Anuncie seu Imóvel</a></li>
-          <li><a href="./financiamento.html"><i class="fa-solid fa-chevron-right"></i>Simular Financiamento</a></li>
-          <li><a href="#"><i class="fa-solid fa-chevron-right"></i>Ajuda & FAQ</a></li>
+          <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="./anunciar.html"><i class="fa-solid fa-chevron-right"></i> Anuncie seu Imóvel</a></li>
+          <li><a href="./financiamento.html"><i class="fa-solid fa-chevron-right"></i> Simular Financiamento</a></li>
+          <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Ajuda & FAQ</a></li>
         </ul>
       </div>
 
@@ -198,7 +172,6 @@
         </div>
 
         <div class="contact-item">
-          <!-- Botão ativo para WhatsApp -->
           <a href="https://wa.me/5527988258176" target="_blank" class="footer-whatsapp-btn">
             <i class="fa-brands fa-whatsapp"></i> Atendimento WhatsApp
           </a>
@@ -221,10 +194,6 @@
   </div>
 </footer>
 
-<script src="./PrimeLar.js">
-      
-</script>
-
+<script src="./PrimeLar.js"></script>
 </body>
-
 </html>
