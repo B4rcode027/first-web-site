@@ -1,993 +1,524 @@
 @import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap');
 
-.logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 25%; /* Ou qualquer largura definida */
+/* ==================== CONFIGURAÇÕES GLOBAIS ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.navigation {
-  display: flex;
-  padding: 12px;
-  background-color: #1a1a20; /* Mesma cor escura do rodapé */
-  border-bottom: 2px solid #c5a880; /* Linha fina dourada idêntica à do rodapé */
-  justify-content: space-between;
-  font-family: "BJCree", serif;
-  font-weight: 400; 
-  font-style: normal;
-}
-
-.navigation .botao {
-  background: transparent;
-  box-shadow: none;
-  padding: 8px 16px;
-  transition: background-color 0.3s ease;
-}
-
-
-.navigation a {
+body {
+  background-color: #121216; /* Fundo geral ligeiramente mais escuro para dar profundidade */
   color: #f8fafc;
-  transition: color 0.3s ease;
-}
-
-
-.navigation .botao:hover a,
-.navigation a:hover {
-  color: #c5a880;
-}
-
-
-.navigation .botao:hover {
-  background-color: rgba(197, 168, 128, 0.1); 
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: inherit;
 }
 
-a:hover {
-  color: #fff;
+/* ==================== BARRA DE NAVEGAÇÃO ==================== */
+.navigation {
+  display: flex;
+  justify-content: space-between; /* Empurra um grupo para cada ponta */
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #1a1a20;
+  border-bottom: 2px solid #c5a880; /* Sua linha dourada oficial */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
+
+.logo {
+  display: block;
+  max-width: 180px;
+  height: auto;
+}
+
+.nav-links-container {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Botões modernos da Nav */
 .botao {
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
-  font-family: "BJCree", serif;
-  font-weight: 400; /* Corrigido de 00 para 400 */
-  font-style: normal;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #94a3b8;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* .img-button {
+.botao:hover {
+  color: #c5a880;
+  background-color: rgba(197, 168, 128, 0.08);
+}
+
+/* Destaque para os botões de Login/Registro */
+.botao-destaque {
+  border: 1px solid #c5a880;
+  color: #c5a880;
+}
+
+.botao-destaque:hover {
+  background-color: #c5a880;
+  color: #1a1a20;
+}
+
+/* ==================== HERO SECTION (BUSCA E IMAGEM) ==================== */
+.img-button {
+  max-width: 1100px; /* Reduzido levemente para encaixar perfeitamente em 1280px */
+  width: 100%;
+  margin: 40px auto; /* Centraliza perfeitamente no monitor */
+  padding: 0 20px;
+}
+
+.img-button > div {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Ajuste de proporção para telas 5:4 */
+  align-items: center;
+  gap: 30px; /* Reduzido o espaço para não empurrar os elementos */
+}
+
+/* Caixa de Busca Minimalista */
+.search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-box {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 30px;
-  max-width: 1200px;
+  background: #1a1a20;
+  border: 1px solid rgba(197, 168, 128, 0.4);
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.search-box {
-  display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
-  max-width: 560px;
-  width: 90%;
-  margin: 1.25rem auto;
-  background: #fff;
-  border-radius: 999px;
-  border: 2px solid gold;
-  box-shadow: 0 4px 14px gold;
-  overflow: hidden;
-}
-
-.pousada{
-  display: block;
-  margin-left: 0px;
-  max-width: 45%;
-  height: auto;
-  /* background-size: cover; */
-  /* mix-blend-mode: multiply; 
-} */
-
-.search-box {
-  display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
-  max-width: 560px;
-  width: 100%;
-  margin: 0;
-  background: #fff;
-  border-radius: 999px;
-  border: 2px solid gold;
-  box-shadow: 0 4px 14px gold;
-  overflow: hidden;
-}
-
-.pousada {
-  display: block;         
-  margin-left: 0;         
-  max-width: 45%;         
-  height: auto;
-  
-}
-.img-button > div {
-  display: flex;          
-  align-items: center;    
-  justify-content: center;
-  gap: 30px;              
-  max-width: 1200px;      
-  margin: 0 auto;         
+.search-box:focus-within {
+  border-color: #c5a880;
+  box-shadow: 0 0 15px rgba(197, 168, 128, 0.25);
 }
 
 .search-box input[type="text"] {
-  display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
   width: 100%;
-  max-width: 560px;
-  flex: 1;
-  min-width: 0;
   border: none;
   outline: none;
-  padding: 0.85rem 1.25rem;
-  font-family: "Oswald", sans-serif, system-ui;
+  padding: 14px 20px;
   font-size: 1rem;
-  color: #2c3e50;
+  color: #f8fafc;
   background: transparent;
 }
 
 .search-box input[type="text"]::placeholder {
-  color: #95a5a6;
+  color: #64748b;
 }
 
 .search-box #searchBtn {
-  flex-shrink: 0;
+  background: #c5a880;
+  color: #1a1a20;
   border: none;
-  background: #c5a880; /* Dourado do rodapé */
-  color: #25252b;      /* Ícone em cinza-escuro para contraste */
-  padding: 0 1.1rem;
-  font-size: 1.15rem;
+  height: 48px;
+  width: 52px;
+  border-radius: 8px;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: transform 0.2s, background-color 0.2s;
 }
 
 .search-box #searchBtn:hover {
-  background: gold;
+  background: #b3966e;
+  transform: scale(1.02);
 }
 
-.search-box #searchBtn:active {
-  background: #21618c;
-}
-
-.search-wrapper {
-  position: relative;
+/* Imagem de Destaque */
+.pousada {
   width: 100%;
-  max-width: 560px;
+  max-width: 380px; /* Ajustado para o tamanho ideal em 1280px */
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  justify-self: center;
 }
 
+/* Dropdown de Busca */
 .search-dropdown {
   display: none;
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 8px);
   left: 0;
   right: 0;
-  background: #fff;
-  border: 2px solid gold;
+  background: #1a1a20;
+  border: 1px solid #c5a880;
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   z-index: 200;
   max-height: 320px;
   overflow-y: auto;
 }
 
-.search-dropdown.ativo {
-  display: block;
-}
+.search-dropdown.ativo { display: block; }
 
 .search-dropdown-item {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 12px 20px;
   border: none;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   background: transparent;
   text-align: left;
   cursor: pointer;
-  font-family: "Oswald", sans-serif, system-ui;
-  transition: background 0.15s;
+  transition: background 0.2s;
 }
 
-.search-dropdown-item:last-child {
-  border-bottom: none;
-}
+.search-dropdown-item:hover { background: rgba(197, 168, 128, 0.08); }
+.search-dropdown-tipo { font-size: 0.7rem; color: #c5a880; font-weight: 600; text-transform: uppercase; }
+.search-dropdown-item strong { color: #f8fafc; font-size: 0.95rem; margin: 2px 0; }
+.search-dropdown-local { font-size: 0.8rem; color: #94a3b8; }
 
-.search-dropdown-item:hover {
-  background: #fff8e1;
-}
-
-.search-dropdown-tipo {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  color: #e49a1b;
-  font-weight: 600;
-}
-
-.search-dropdown-item strong {
-  color: #25252b;
-  font-size: 0.95rem;
-}
-
-.search-dropdown-local {
-  font-size: 0.8rem;
-  color: #777;
-}
-
-.search-dropdown-empty,
-.search-dropdown-erro {
-  padding: 1rem;
-  font-family: "Oswald", sans-serif;
-  font-size: 0.9rem;
-  color: #666;
-  margin: 0;
-}
-
-.search-dropdown-erro code {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  background: #f5f5f5;
-  padding: 0.4rem 0.6rem;
-  border-radius: 4px;
-}
-
+/* ==================== SEÇÃO DE RESULTADOS DA BUSCA ==================== */
 .search-results {
-  max-width: 1100px;
-  margin: 1.5rem auto 2rem;
-  padding: 0 1.5rem;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 25px;
 }
 
-.search-results.hidden {
-  display: none;
-}
+.search-results.hidden { display: none; }
 
 .search-results-title {
-  font-family: "BJCree", serif;
-  color: gold;
-  font-size: 1.5rem;
-  margin-bottom: 1.25rem;
-}
-
-.search-results-title span {
-  font-size: 1rem;
-  color: #aaa;
+  font-family: 'Montserrat', sans-serif;
+  color: #c5a880;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
 }
 
 .search-results-grid {
   display: grid;
-  /* Cria colunas dinâmicas de no mínimo 280px */
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-  max-width: 100%;
-  /* Centraliza os cards horizontalmente na tela */
-  justify-content: center; 
+  gap: 30px;
+  justify-content: center;
 }
 
+/* Card de Busca */
 .search-result-card {
-  width: 100%; 
-  max-width: 320px; 
-  background: #fff;
-  border: 2px solid #c5a880; /* Atualizado para o dourado do rodapé */
-  border-radius: 12px;
-  padding: 1rem 1.1rem;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  font-family: "BJCree", serif;
-  box-sizing: border-box; 
+  background: #1a1a20;
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 .search-result-card:hover {
-  transform: translateY(-3px);
-  /* Sombra atualizada com o novo tom bronze/dourado */
-  box-shadow: 0 8px 20px rgba(197, 168, 128, 0.35); 
+  transform: translateY(-5px);
+  border-color: #c5a880;
+  box-shadow: 0 12px 24px rgba(197, 168, 128, 0.15);
 }
 
 .search-result-tipo {
   display: inline-block;
   font-size: 0.7rem;
-  text-transform: uppercase;
-  background: #c5a880; /* Cor sólida do rodapé */
-  color: #25252b;       /* Texto escuro para garantir a leitura */
-  padding: 3px 8px;
-  border-radius: 4px;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.search-result-card h3 {
-  font-size: 1rem;
-  color: #25252b;
-  margin-bottom: 0.4rem;
-  line-height: 1.3;
-}
-
-.search-result-local {
-  font-size: 0.85rem;
-  color: #666;
-  margin-bottom: 0.5rem;
-}
-
-.search-result-local i {
-  color: #e49a1b;
-}
-
-.search-result-preco {
-  font-size: 1.1rem;
   font-weight: 700;
-  color: #25252b;
-  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  background: rgba(197, 168, 128, 0.15);
+  color: #c5a880;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
 }
 
-.search-result-btn {
-  width: 100%;
-  cursor: pointer;
-}
-
-.search-loading,
-.search-sem-resultado,
-.search-erro {
-  font-family: "BJCree", serif;
-  color: #ccc;
-  text-align: center;
-  padding: 2rem;
-}
-
-.search-erro code {
-  display: block;
-  margin-top: 0.75rem;
-  background: #2d2d39;
-  color: gold;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
-}
-
+/* ==================== CATEGORIAS (LINKS RÁPIDOS) ==================== */
 .categorias {
-  display: flex;
-  justify-content: center;
-  font-family: "BJCree", serif;
-  font-weight: 900;
-  font-style: normal;
-  color: gold;
-}
-
-.container-venda {
-  position: relative;
-  display: inline-block;
-  width: 300px; /* Mantive a largura do seu código */
-  height: 200px; /* Mantive a altura do seu código */
-  overflow: hidden; /* Garante que nada saia da borda */
-  font-family: "BJCree", serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.container-venda img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Faz a mesma função do background-size: cover */
-}
-
-.texto-venda {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro para destacar o texto */
-  color: white;
-  padding: 8px 12px;
-  font-family: sans-serif;
-  font-size: 14px;
-}
-
-.vendas {
-  display: flex;
-  gap: 20px;  
-  justify-content: center; 
-}
-
-.container-imagem {
-  position: relative; /* Transforma o contêiner na âncora principal */
-  display: inline-block;
-}
-
-.texto-centro {
-  position: absolute; /* Faz o texto flutuar sobre a imagem */
-  top: 50%;
-  left: 50%;
-  transform: translate(
-    -50%,
-    -50%
-  ); /* Ajuste fino para centralizar perfeitamente */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  color: #c5a880;
+  text-align: center;
+  margin: 80px 0 30px;
 }
 
 .links-rapidos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
 }
 
-
-.txts{
-  transition: transform 0.30s ease;
-  
-}
-.txts:hover {
-  transform: scale(1.10) rotate(3deg);
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.categoria1 {
+/* Cards Modernos com Overlay Embutido */
+.categoria1, .categoria2, .categoria3, .categoria4 {
   position: relative;
-  text-align: center;
-  border-radius: 10px;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("./sobrado.jpeg") no-repeat center center;
-  background-size: cover;
-  width: 300px;
-  height: 200px;
+  border-radius: 16px;
+  height: 220px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "BJCree", serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-style: normal;
   color: #fff;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-.categoria2 {
-  position: relative;
-  text-align: center;
-  border-radius: 10px;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("./pet.jpeg") no-repeat center center;
-  background-size: cover;
-  width: 300px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "BJCree", serif;
-  font-weight: 700;
-  font-style: normal;
-  color: #fff;
+.categoria1 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("./sobrado.jpeg") no-repeat center/cover; }
+.categoria2 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("./pet.jpeg") no-repeat center/cover; }
+.categoria3 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("./varanda.jpeg") no-repeat center/cover; }
+.categoria4 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("./mobiliado.jpeg") no-repeat center/cover; }
+
+.txts {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  padding: 0 15px;
 }
 
-.categoria3 {
-  position: relative;
-  text-align: center;
-  border-radius: 10px;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("./varanda.jpeg") no-repeat center center;
-  background-size: cover;
-  width: 300px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "BJCree", serif;
-  font-weight: 700;
-  font-style: normal;
-  color: #fff;
+.categoria1:hover .txts, .categoria2:hover .txts, .categoria3:hover .txts, .categoria4:hover .txts {
+  transform: scale(1.08);
+  color: #c5a880;
 }
 
-.categoria4 {
-  position: relative;
-  text-align: center;
-  border-radius: 10px;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("./mobiliado.jpeg") no-repeat center center;
-  background-size: cover;
-  width: 300px;
-  height: 200px;
+/* ==================== BLOCOS PADRÃO (ALUGUEL / COMPRA) ==================== */
+section {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "BJCree", serif;
-  font-weight: 700;
-  font-style: normal;
-  color: #fff;
+  flex-direction: column;
+  align-items: center;    /* Mantém as caixas perfeitamente no centro */
+  width: 100%;
+  margin: 40px auto;
 }
 
 section > a {
-  display: block; /* Transforma em bloco para poder centralizar */ 
-  margin: 10px; /* Centraliza o link (e o botão) na tela */
+  display: block;         
+  width: 100%;           
+  max-width: px;      /* REDUZIDO: Deixa a caixa menos alongada nas laterais */
+  margin: 20px 0;        
   text-decoration: none;
 }
 
-
 .padrao {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%; /* Aumentamos levemente para o texto não ficar tão espremido */
-  border-radius: 20px; 
-  border: 2px solid #c5a880; /* Borda fina com o dourado do rodapé */
-  padding: 30px; /* Mais espaço interno para o texto respirar */
-  background-color: #1a1a20; /* Fundo escuro idêntico ao do rodapé */
-  box-sizing: border-box;
+  width: 100%;           
+  border-radius: 16px;
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  padding: 35px;         
+  background-color: #1a1a20;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
-.h1-aluguel {
-  font-family: "BJCree", serif;
-  font-weight: 900;
-  font-style: normal;
-  color: #c5a880; /* Dourado bronze do rodapé para o título */
-  margin-bottom: 15px; /* Espaço entre o título e o texto */
+/* Garante que tanto o título de Aluguel quanto o de Compra fiquem no dourado bronze */
+.h1-aluguel,
+.padrao h1,
+.padrao h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #c5a880; /* Dourado bronze oficial */
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
-.p-aluguel {
-  font-family: "BJCree", serif;
-  font-weight: 400;
-  font-style: normal;
-  color: #f8fafc; /* Branco suave para o parágrafo */
+.p-aluguel,
+.padrao p {
+  color: #94a3b8;
+  line-height: 1.7;
+  font-size: 1rem;
+  text-align: justify; /* Layout de leitura elegante e simétrico */
 }
 
-/* Anúncios de imóveis */
+/* ==================== ANÚNCIOS FIXOS DE IMÓVEIS ==================== */
 .anuncios-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
   max-width: 1200px;
-  margin: 1.5rem auto 2rem;
-  padding: 0 1.5rem;
+  margin: 40px auto 80px;
+  padding: 0 25px;
 }
 
 .anuncio-card {
-  width: 320px;
-  background: #fff;
-  border-radius: 12px;
+  background: #1a1a20;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-  border: 2px solid gold;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s, border-color 0.3s;
 }
 
 .anuncio-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 28px rgba(228, 154, 27, 0.4);
+  transform: translateY(-6px);
+  border-color: rgba(197, 168, 128, 0.5);
 }
 
 .anuncio-img {
   position: relative;
-  height: 180px;
+  height: 220px;
   background-size: cover;
   background-position: center;
 }
 
-.anuncio-img-1 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-    url("./sobrado.jpeg");
-}
-
-.anuncio-img-2 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-    url("./pet.jpeg");
-}
-
-.anuncio-img-3 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-    url("./varanda.jpeg");
-}
-
-.anuncio-img-4 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-    url("./mobiliado.jpeg");
-}
+.anuncio-img-1 { background-image: url("./sobrado.jpeg"); }
+.anuncio-img-2 { background-image: url("./pet.jpeg"); }
+.anuncio-img-3 { background-image: url("./varanda.jpeg"); }
+.anuncio-img-4 { background-image: url("./mobiliado.jpeg"); }
 
 .anuncio-badge {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  background: linear-gradient(to right, #e49a1b, rgb(221, 189, 9));
-  color: #111;
-  font-family: "BJCree", serif;
+  top: 15px;
+  left: 15px;
+  background: #c5a880;
+  color: #1a1a20;
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 6px;
-}
-
-.anuncio-badge-fgts {
-  background: #25252b;
-  color: gold;
-  border: 1px solid gold;
+  padding: 5px 12px;
+  border-radius: 4px;
 }
 
 .anuncio-corpo {
-  padding: 1rem 1.1rem 1.25rem;
-  font-family: "BJCree", serif;
+  padding: 25px;
 }
 
 .anuncio-corpo h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #25252b;
-  margin-bottom: 0.35rem;
-  line-height: 1.3;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  color: #f8fafc;
+  margin-bottom: 8px;
 }
 
 .anuncio-local {
   font-size: 0.85rem;
-  color: #666;
-  margin-bottom: 0.75rem;
+  color: #94a3b8;
+  margin-bottom: 15px;
 }
 
-.anuncio-local i {
-  color: #e49a1b;
-  margin-right: 4px;
-}
+.anuncio-local i { color: #c5a880; margin-right: 6px; }
 
 .anuncio-detalhes {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1rem;
-  margin-bottom: 0.85rem;
-  padding: 0;
-  font-size: 0.8rem;
-  color: #444;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.85rem;
+  color: #94a3b8;
 }
 
-.anuncio-detalhes i {
-  color: #e49a1b;
-  margin-right: 4px;
-}
+.anuncio-detalhes i { color: #c5a880; }
 
 .anuncio-preco {
-  font-size: 1.35rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #25252b;
-  margin-bottom: 0.25rem;
+  color: #c5a880;
 }
 
-.anuncio-parcela {
-  font-size: 0.85rem;
-  color: #555;
-  margin-bottom: 1rem;
+/* ==================== RODAPÉ INTEGRADO ==================== */
+.real-estate-footer {
+  background-color: #1a1a20;
+  color: #f8fafc;
+  padding: 60px 0 20px 0;
+  border-top: 2px solid #c5a880;
 }
 
-.anuncio-parcela strong {
-  color: #e49a1b;
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
 }
 
-.anuncio-btn {
-  width: 100%;
-  cursor: pointer;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 40px;
 }
 
-.anuncio-btn a {
+.footer-column h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #c5a880;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.footer-column h3::after {
+  content: '';
   display: block;
-  width: 100%;
+  width: 35px;
+  height: 2px;
+  background-color: #c5a880;
+  margin-top: 8px;
 }
 
-    /* ==================== ESTILO DO NOVO RODAPÉ (INTEGRADO) ==================== */
-    .real-estate-footer {
-        background-color: #1a1a20; /* Tom escuro levemente diferente do fundo do site para dar profundidade */
-        color: #f8fafc;
-        font-family: 'Open Sans', sans-serif;
-        padding: 60px 0 20px 0;
-        margin-top: 80px;
-        border-top: 2px solid #c5a880; /* Linha de destaque bronze no topo */
-    }
+.footer-about p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+.creci-badge { display: inline-block; border: 1px solid #c5a880; color: #c5a880; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
+.footer-links ul { list-style: none; }
+.footer-links ul li { margin-bottom: 12px; }
+.footer-links ul li a { color: #94a3b8; font-size: 0.95rem; transition: all 0.3s ease; }
+.footer-links ul li a:hover { color: #ffffff; padding-left: 5px; }
 
-    /* Container principal com limite de largura */
-    .footer-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 25px;
-    }
+.footer-contact .contact-item { display: flex; gap: 15px; margin-bottom: 20px; }
+.footer-contact .contact-item i { color: #c5a880; font-size: 1.2rem; }
+.footer-contact .contact-item p { color: #94a3b8; font-size: 0.95rem; }
+.footer-contact .contact-item strong { color: #ffffff; display: block; }
 
-    /* Grid das Colunas */
-    .footer-grid {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr; /* Colunas externas ligeiramente maiores */
-        gap: 40px;
-        margin-bottom: 40px;
-    }
+.footer-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #128c7e;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+.footer-whatsapp-btn:hover { background-color: #075e54; }
 
-    /* Títulos das colunas */
-    .footer-column h3 {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #c5a880; /* Bronze/Dourado sofisticado */
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 25px;
-        position: relative;
-    }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 40px;
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.footer-bottom p { color: #64748b; font-size: 0.85rem; }
+.social-icons { display: flex; gap: 15px; }
+.social-icons a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background-color: #2d2d39; color: #94a3b8; border-radius: 50%; transition: all 0.3s ease; }
+.social-icons a:hover { background-color: #c5a880; color: #1a1a20; transform: translateY(-3px); }
 
-    /* Linha decorativa abaixo do título da coluna */
-    .footer-column h3::after {
-        content: '';
-        display: block;
-        width: 35px;
-        height: 2px;
-        background-color: #c5a880;
-        margin-top: 8px;
-    }
+/* ==================== MEDIAS QUERIES (RESPONSIVIDADE COMPLETA) ==================== */
+@media (max-width: 992px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .img-button > div { grid-template-columns: 1fr; gap: 40px; }
+  .pousada { max-width: 80%; }
+}
 
-    /* Estilo da primeira coluna (Sobre / Logo) */
-    .footer-about .footer-logo {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: #ffffff;
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
+@media (max-width: 768px) {
+  .navigation { flex-direction: column; gap: 20px; padding: 20px; text-align: center; }
+  .nav-links-container { flex-direction: column; width: 100%; gap: 10px; }
+  .botao { width: 100%; }
+  .padrao { width: 100%; padding: 25px; }
+}
 
-    .footer-about .footer-logo i {
-        color: #c5a880;
-    }
-
-    .footer-about p {
-        color: #94a3b8;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
-
-    /* Selo do CRECI */
-    .creci-badge {
-        display: inline-block;
-        border: 1px solid #c5a880;
-        color: #c5a880;
-        padding: 4px 12px;
-        border-radius: 4px;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-    }
-
-    /* Listas de Links (Colunas 2 e 3) */
-    .footer-links ul {
-        list-style: none;
-    }
-
-    .footer-links ul li {
-        margin-bottom: 12px;
-    }
-
-    .footer-links ul li a {
-        color: #94a3b8;
-        text-decoration: none;
-        font-size: 0.95rem;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-    }
-
-    /* Efeito hover nos links */
-    .footer-links ul li a:hover {
-        color: #ffffff;
-        transform: translateX(4px); /* Desloca suavemente para a direita */
-    }
-
-    .footer-links ul li a i {
-        font-size: 0.8rem;
-        color: #c5a880;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .footer-links ul li a:hover i {
-        opacity: 1;
-    }
-
-    /* Coluna 4 (Contatos e Atendimento) */
-    .footer-contact .contact-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 15px;
-        margin-bottom: 20px;
-    }
-
-    .footer-contact .contact-item i {
-        color: #c5a880;
-        font-size: 1.2rem;
-        margin-top: 3px;
-    }
-
-    .footer-contact .contact-item p {
-        color: #94a3b8;
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
-
-    .footer-contact .contact-item strong {
-        color: #ffffff;
-        display: block;
-        margin-bottom: 2px;
-    }
-
-    /* Botão de WhatsApp rápido */
-    .footer-whatsapp-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        background-color: #128c7e;
-        color: #ffffff;
-        padding: 10px 20px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.95rem;
-        margin-top: 5px;
-        transition: background-color 0.3s ease;
-    }
-
-    .footer-whatsapp-btn:hover {
-        background-color: #075e54;
-    }
-
-    /* Barra Inferior (Direitos autorais e redes sociais) */
-    .footer-bottom {
-        border-top: 1px solid #2d2d39;
-        margin-top: 40px;
-        padding-top: 25px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .footer-bottom p {
-        color: #64748b;
-        font-size: 0.85rem;
-    }
-
-    /* Ícones de Redes Sociais */
-    .social-icons {
-        display: flex;
-        gap: 15px;
-    }
-
-    .social-icons a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        background-color: #2d2d39;
-        color: #94a3b8;
-        border-radius: 50%;
-        text-decoration: none;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-    }
-
-    .social-icons a:hover {
-        background-color: #c5a880;
-        color: #1a1a20;
-        transform: translateY(-3px);
-    }
-
-    /* ==================== RESPONSIVIDADE DO RODAPÉ ==================== */
-    @media (max-width: 992px) {
-        .footer-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-    }
-
-    @media (max-width: 576px) {
-        .footer-grid {
-            grid-template-columns: 1fr;
-            gap: 35px;
-        }
-
-        .footer-bottom {
-            flex-direction: column;
-            text-align: center;
-            align-items: center;
-        }
-    }
-
-    /* ==================== CONFIGURAÇÃO PARA CELULARES (TELAS ATÉ 768px) ==================== */
-@media screen and (max-width: 768px) {
-  
-  
-  .logo {
-    width: 60%; 
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-
-  
-  .navigation {
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-    text-align: center;
-  }
-
-  .navigation > div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-  }
-
-  .botao.nav, .botao {
-    width: 100%; 
-    box-sizing: border-box;
-  }
-
-  
-  .img-button > div {
-    flex-direction: column;
-    padding: 0 20px;
-    gap: 20px;
-  }
-
-  .search-box {
-    max-width: 100%; 
-  }
-
-  .pousada {
-    max-width: 80%; 
-    margin: 0 auto;
-  }
-
-  
-  .links-rapidos, .vendas {
-    flex-direction: column;
-    align-items: center;
-    padding: 0 20px;
-  }
-
-  .categoria1, .categoria2, .categoria3, .categoria4, .container-venda {
-    width: 100%; 
-    max-width: 340px; 
-
-  }
-  
-  .padrao {
-    width: 90%;
-    padding: 15px;
-    border-radius: 20px; 
-    box-sizing: border-box;
-  }
-  
-  .padrao p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    text-align: justify;
-  }
+@media (max-width: 576px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
 }
