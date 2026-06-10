@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: #121216; /* Fundo geral ligeiramente mais escuro para dar profundidade */
+  background-color: #121216; 
   color: #f8fafc;
   font-family: 'Open Sans', sans-serif;
   overflow-x: hidden;
@@ -23,11 +23,11 @@ a {
 /* ==================== BARRA DE NAVEGAÇÃO ==================== */
 .navigation {
   display: flex;
-  justify-content: space-between; /* Empurra um grupo para cada ponta */
+  justify-content: space-between; 
   align-items: center;
   padding: 15px 40px;
   background-color: #1a1a20;
-  border-bottom: 2px solid #c5a880; /* Sua linha dourada oficial */
+  border-bottom: 2px solid #c5a880; 
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -77,17 +77,17 @@ a {
 
 /* ==================== HERO SECTION (BUSCA E IMAGEM) ==================== */
 .img-button {
-  max-width: 1100px; /* Reduzido levemente para encaixar perfeitamente em 1280px */
+  max-width: 1100px; 
   width: 100%;
-  margin: 40px auto; /* Centraliza perfeitamente no monitor */
+  margin: 40px auto; 
   padding: 0 20px;
 }
 
 .img-button > div {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr; /* Ajuste de proporção para telas 5:4 */
+  grid-template-columns: 1.1fr 0.9fr; 
   align-items: center;
-  gap: 30px; /* Reduzido o espaço para não empurrar os elementos */
+  gap: 30px; 
 }
 
 /* Caixa de Busca Minimalista */
@@ -146,7 +146,7 @@ a {
 /* Imagem de Destaque */
 .pousada {
   width: 100%;
-  max-width: 380px; /* Ajustado para o tamanho ideal em 1280px */
+  max-width: 380px; 
   height: auto;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
@@ -292,7 +292,7 @@ a {
 section {
   display: flex;
   flex-direction: column;
-  align-items: center;    /* Mantém as caixas perfeitamente no centro */
+  align-items: center;    
   width: 100%;
   margin: 40px auto;
 }
@@ -300,7 +300,7 @@ section {
 section > a {
   display: block;         
   width: 100%;           
-  max-width: px;      /* REDUZIDO: Deixa a caixa menos alongada nas laterais */
+  max-width: px;      
   margin: 20px 0;        
   text-decoration: none;
 }
@@ -315,13 +315,13 @@ section > a {
   text-align: center;
 }
 
-/* Garante que tanto o título de Aluguel quanto o de Compra fiquem no dourado bronze */
+
 .h1-aluguel,
 .padrao h1,
 .padrao h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  color: #c5a880; /* Dourado bronze oficial */
+  color: #c5a880; 
   font-size: 1.8rem;
   margin-bottom: 20px;
   text-transform: uppercase;
@@ -332,8 +332,7 @@ section > a {
   color: #94a3b8;
   line-height: 1.7;
   font-size: 1rem;
-  text-align: justify; /* Layout de leitura elegante e simétrico */
-}
+  text-align: justify; 
 
 /* ==================== ANÚNCIOS FIXOS DE IMÓVEIS ==================== */
 .anuncios-grid {
