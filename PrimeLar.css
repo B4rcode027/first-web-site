@@ -43,6 +43,25 @@ a {
   height: auto;
 }
 
+/* Botão do Menu Hambúrguer (Escondido no Desktop) */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #c5a880;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Container mestre dos links da Navbar */
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-left: 40px;
+}
+
 .nav-links-container {
   display: flex;
   gap: 15px;
@@ -302,7 +321,7 @@ section {
 }
 
 section > a {
-  display: block;         
+  display: block;          
   width: 100%;           
   max-width: 100%;      
   margin: 20px 0;         
@@ -310,14 +329,15 @@ section > a {
 }
 
 .padrao {
-  width: 100%;           
+  width: 90%;            
+  max-width: 800px;      
+  margin: 0 auto 20px auto; 
   border-radius: 16px;
   border: 1px solid rgba(197, 168, 128, 0.3);
   padding: 35px;         
   background-color: #1a1a20;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .h1-aluguel,
@@ -337,7 +357,7 @@ section > a {
   line-height: 1.7;
   font-size: 1rem;
   text-align: justify; 
-} /* Chave fechada corretamente aqui! */
+}
 
 /* ==================== ANÚNCIOS FIXOS DE IMÓVEIS ==================== */
 .anuncios-grid {
@@ -516,7 +536,7 @@ section > a {
 .social-icons a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background-color: #2d2d39; color: #94a3b8; border-radius: 50%; transition: all 0.3s ease; }
 .social-icons a:hover { background-color: #c5a880; color: #1a1a20; transform: translateY(-3px); }
 
-/* ==================== MEDIAS QUERIES (RESPONSIVIDADE COMPLETA) ==================== */
+/* ==================== MEDIA QUERIES ==================== */
 @media (max-width: 992px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .img-button > div { grid-template-columns: 1fr; gap: 40px; }
@@ -524,9 +544,47 @@ section > a {
 }
 
 @media (max-width: 768px) {
-  .navigation { flex-direction: column; gap: 20px; padding: 20px; text-align: center; }
-  .nav-links-container { flex-direction: column; width: 100%; gap: 10px; }
-  .botao { width: 100%; }
+  .navigation {
+    flex-direction: row; 
+    justify-content: space-between;
+    padding: 15px 20px;
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block; 
+  }
+
+  .nav-menu {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Inicia exatamente abaixo da nav */
+    left: 0;
+    width: 100%;
+    background-color: #1a1a20;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    border-bottom: 2px solid #c5a880;
+    margin-left: 0;
+    gap: 20px;
+  }
+
+  .nav-menu.ativo {
+    display: flex;
+  }
+
+  .nav-links-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .botao {
+    width: 100%;
+    text-align: center;
+  }
+
   .padrao { width: 100%; padding: 25px; }
 }
 

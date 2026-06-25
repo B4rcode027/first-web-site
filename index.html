@@ -16,20 +16,28 @@
 <body style="background-color:#35353a;">
 
 <nav class="navigation">
-  <!-- A Logo agora fica dentro da Nav para alinhar corretamente com o CSS flexbox -->
+  <!-- Logo -->
   <img class="logo" src="Logo - PrimeLar.png" alt="Prime Lar">
 
-  <div class="nav-links-container">
-    <button class="botao"><a href="#aluguel">Alugar</a></button>
-    <button class="botao"><a href="#comprar">Comprar</a></button>
-    <button class="botao"><a href="#anunciar">Anunciar</a></button>
-    <button class="botao"><a href="#financiamento">Financiamento</a></button>
-    <button class="botao"><a href="#ajuda">Ajuda</a></button>
-  </div>
+  <!-- Botão Hamburguer (Apenas visível no celular) -->
+  <button class="menu-toggle" aria-label="Abrir menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
 
-  <div class="nav-links-container">
-    <button class="botao"><a href="#login">Login</a></button>
-    <button class="botao botao-destaque"><a href="#registro">Registre-se</a></button>
+  <!-- Envelopamos os dois containers de links em uma única div mobile -->
+  <div class="nav-menu">
+    <div class="nav-links-container">
+      <button class="botao"><a href="#aluguel">Alugar</a></button>
+      <button class="botao"><a href="#comprar">Comprar</a></button>
+      <button class="botao"><a href="./anunciar.html">Anunciar</a></button>
+      <button class="botao"><a href="./financiamento.html">Financiamento</a></button>
+      <button class="botao"><a href="#ajuda">Ajuda</a></button>
+    </div>
+
+    <div class="nav-links-container">
+      <button class="botao"><a href="#login">Login</a></button>
+      <button class="botao botao-destaque"><a href="#registro">Registre-se</a></button>
+    </div>
   </div>
 </nav>
 

@@ -196,3 +196,32 @@ if (searchForm) {
 document.addEventListener("click", (e) => {
   if (!e.target.closest(".search-wrapper")) esconderDropdown()
 })
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.querySelector(".menu-toggle")
+  const navMenu = document.querySelector(".nav-menu")
+  const menuLinks = document.querySelectorAll(".nav-menu a")
+
+  // Alterna o menu (Abre e Fecha) ao clicar no botão
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("ativo")
+
+    // Troca o ícone de Barras para um 'X' quando aberto
+    const icone = menuToggle.querySelector("i")
+    if (navMenu.classList.contains("ativo")) {
+      icone.className = "fa-solid fa-xmark"
+    } else {
+      icone.className = "fa-solid fa-bars"
+    }
+  })
+
+  // Fecha o menu automaticamente quando clicar em qualquer link (âncora)
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (navMenu.classList.contains("ativo")) {
+        navMenu.classList.remove("ativo")
+        menuToggle.querySelector("i").className = "fa-solid fa-bars"
+      }
+    })
+  })
+})
