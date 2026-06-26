@@ -1,74 +1,77 @@
-const http = require("http")
-// Removido o 'const url = require("url")' pois usaremos a nova API global 'new URL()'
-
+const express = require("express")
+const cors = require("cors")
 const { buscarItens } = require("./dados")
 
-const PORT = process.env.PORT || 10000
+const app = express()
+const PORT = process.env.PORT || 3001
 
-function enviarJson(res, status, dados) {
-  res.writeHead(status, {
-    "Content-Type": "application/json; charset=utf-8",
-    "Access-Control-Allow-Origin": "*", // Libera o acesso para o seu front-end
-    "Access-Control-Allow-Methods": "GET, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
-  })
-  res.end(JSON.stringify(dados))
-}
+// Configurações Globais (Middlewares)
+app.use(cors()) // Ativa CORS para qualquer origem automaticamente
+app.use(express.json()) // Permite que a API entenda JSON no corpo das requisições
 
-const server = http.createServer((req, res) => {
-  if (req.method === "OPTIONS") {
-    enviarJson(res, 200, { sucesso: true })
-    return
-  }
+/**
+ * Rota original de Pesquisa
+ * GET /api/pesquisa?q=termo&limite=20
+ */
+app.get("/api/pesquisa", (req, res) => {
+  try {
+    const termo = (req.query.q || "").trim()
+    const limite = Math.min(parseInt(req.query.limite, 10) || 20, 50)
 
-  // Correção moderna para evitar o DeprecationWarning [DEP0169]
-  // Criamos o objeto de URL usando a URL base padrão necessária pelo construtor
-  const urlCompleta = new URL(req.url, `http://${req.headers.host}`)
-  const pathname = urlCompleta.pathname
-  const searchParams = urlCompleta.searchParams
-
-  if (req.method === "GET" && pathname === "/api/pesquisa") {
-    const termo = (searchParams.get("q") || "").trim()
-    const limite = Math.min(parseInt(searchParams.get("limite"), 10) || 20, 50)
     const resultados = buscarItens(termo, limite).map(
       ({ pontuacao, ...item }) => item,
     )
 
-    enviarJson(res, 200, {
+    res.json({
       sucesso: true,
       query: termo,
       total: resultados.length,
       resultados,
     })
-    return
+  } catch (error) {
+    res.status(500).json({ sucesso: false, erro: "Erro interno no servidor." })
   }
+})
 
-  if (req.method === "GET" && pathname === "/api/sugestoes") {
-    const termo = (searchParams.get("q") || "").trim()
-    const limite = Math.min(parseInt(searchParams.get("limite"), 10) || 8, 15)
+/**
+ * Rota original de Sugestões
+ * GET /api/sugestoes?q=termo&limite=8
+ */
+app.get("/api/sugestoes", (req, res) => {
+  try {
+    const termo = (req.query.q || "").trim()
+    const limite = Math.min(parseInt(req.query.limite, 10) || 8, 15)
+
     const resultados = buscarItens(termo, limite)
 
-    enviarJson(res, 200, {
+    const sugestoes = resultados.map((item) => ({
+      id: item.id,
+      titulo: item.titulo,
+      tipo: item.tipo,
+      local: item.local,
+      url: item.url,
+    }))
+
+    res.json({
       sucesso: true,
       query: termo,
-      sugestoes: resultados.map((item) => ({
-        id: item.id,
-        titulo: item.titulo,
-        tipo: item.tipo,
-        local: item.local,
-        url: item.url,
-      })),
+      sugestoes,
     })
-    return
+  } catch (error) {
+    res.status(500).json({ sucesso: false, erro: "Erro interno no servidor." })
   }
+})
 
-  enviarJson(res, 404, {
+// Tratamento de rota não encontrada (404) - Mantendo sua mensagem original
+app.use((req, res) => {
+  res.status(404).json({
     sucesso: false,
     message:
       "Rota não encontrada. Use GET /api/pesquisa?q=termo ou GET /api/sugestoes?q=termo",
   })
 })
 
-server.listen(PORT, "0.0.0.0", () => {
-  console.log(`API de pesquisa rodando na porta ${PORT}`)
+// Inicialização do Servidor
+app.listen(PORT, () => {
+  console.log(`🚀 API com Express rodando com as rotas antigas preservadas!`)
 })
