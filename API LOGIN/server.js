@@ -1,4 +1,20 @@
 const http = require("http")
+const { createClient } = require("@supabase/supabase-js")
+require("dotenv").config()
+
+// Buscando as credenciais das variáveis de ambiente (.env)
+const SUPABASE_URL = process.env.SUPABASE_URL
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY
+
+if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+  console.error(
+    "Erro: SUPABASE_URL e SUPABASE_ANON_KEY são obrigatórias no ambiente.",
+  )
+  process.exit(1)
+}
+
+// Inicializa o cliente do Supabase
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 function lerBody(req) {
   return new Promise((resolve, reject) => {
@@ -16,11 +32,25 @@ function lerBody(req) {
 }
 
 function responder(res, status, payload) {
-  res.writeHead(status, { "Content-Type": "application/json" })
+  res.writeHead(status, {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  })
   res.end(JSON.stringify(payload))
 }
 
 const server = http.createServer(async (req, res) => {
+  if (req.method === "OPTIONS") {
+    res.writeHead(204, {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    })
+    return res.end()
+  }
+
   if (req.method !== "POST") {
     return responder(res, 404, {
       sucesso: false,
@@ -35,39 +65,62 @@ const server = http.createServer(async (req, res) => {
     return responder(res, 400, { sucesso: false, message: "Body inválido" })
   }
 
+  // --- ROTA DE LOGIN ---
   if (req.url === "/login") {
-    const { username, senha } = dados
-    if (username === "admin" && senha === process.env.ADMIN_SENHA) {
-      return responder(res, 200, { sucesso: true, data: { username } })
+    const { email, senha } = dados // O Supabase usa email por padrão para Auth
+
+    // Autentica o usuário diretamente no Supabase
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: senha,
+    })
+
+    if (error) {
+      return responder(res, 401, { sucesso: false, message: error.message })
     }
-    return responder(res, 401, {
-      sucesso: false,
-      message: "Credenciais inválidas",
+
+    // Retorna os dados do usuário logado e o token de sessão (JWT)
+    return responder(res, 200, {
+      sucesso: true,
+      message: "Login realizado com sucesso",
+      session: data.session,
+      user: data.user,
     })
   }
 
+  // --- ROTA DE CADASTRO ---
   if (req.url === "/cadastrar") {
-    const camposVazios = Object.keys(dados).filter(
-      (k) => dados[k] === undefined || dados[k].toString().trim() === "",
-    )
+    const { email, senha, csenha } = dados
 
-    if (camposVazios.length > 0) {
+    if (!email || !senha || !csenha) {
       return responder(res, 400, {
         sucesso: false,
-        message: `Os seguintes campos são obrigatórios: ${camposVazios.join(", ")}`,
+        message: "Email, senha e csenha são obrigatórios",
       })
     }
 
-    if (dados.senha !== dados.csenha) {
+    if (senha !== csenha) {
       return responder(res, 400, {
         sucesso: false,
         message: "As senhas não coincidem",
       })
     }
 
+    // Cria o usuário diretamente no serviço de Auth do Supabase
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: senha,
+    })
+
+    if (error) {
+      return responder(res, 400, { sucesso: false, message: error.message })
+    }
+
     return responder(res, 201, {
       sucesso: true,
-      message: "Cadastro realizado com sucesso",
+      message:
+        "Cadastro realizado com sucesso! Verifique seu email se necessário.",
+      user: data.user,
     })
   }
 
