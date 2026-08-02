@@ -1,51 +1,44 @@
-const express = require("express")
-const cors = require("cors")
+const http = require("http")
+const url = require("url")
 const { buscarItens } = require("./dados")
 
-const app = express()
 const PORT = process.env.PORT || 3001
 
-// Middlewares obrigatórios para APIs REST modernas
-app.use(cors()) // Libera o CORS para o seu front-end se conectar sem travar
-app.use(express.json()) // Permite que o servidor entenda requisições com corpo em JSON
+const server = http.createServer((req, res) => {
+  // Cabeçalhos manuais de CORS
+  res.setHeader("Access-Control-Allow-Origin", "*")
+  res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS")
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type")
 
-/**
- * Rota original de Pesquisa (Atualizada para Async/Await + Supabase)
- * GET /api/pesquisa?q=termo&limite=20
- */
-app.get("/api/pesquisa", async (req, res) => {
-  try {
-    const termo = (req.query.q || "").trim()
-    const limite = Math.min(parseInt(req.query.limite, 10) || 20, 50)
-
-    // Aguarda a resposta do banco de dados do Supabase
-    const resultados = await buscarItens(termo, limite)
-
-    res.json({
-      sucesso: true,
-      query: termo,
-      total: resultados.length,
-      resultados,
-    })
-  } catch (error) {
-    console.error("Erro na rota /api/pesquisa:", error)
-    res.status(500).json({ sucesso: false, erro: "Erro interno no servidor." })
+  if (req.method === "OPTIONS") {
+    res.writeHead(204)
+    res.end()
+    return
   }
-})
 
-/**
- * Rota original de Sugestões (Atualizada para Async/Await + Supabase)
- * GET /api/sugestoes?q=termo&limite=8
- */
-app.get("/api/sugestoes", async (req, res) => {
-  try {
-    const termo = (req.query.q || "").trim()
-    const limite = Math.min(parseInt(req.query.limite, 10) || 8, 15)
+  const parsedUrl = url.parse(req.url, true)
+  const pathname = parsedUrl.pathname
+  const query = parsedUrl.query
 
-    // Aguarda a resposta do banco de dados do Supabase
-    const resultados = await buscarItens(termo, limite)
+  if (pathname === "/api/pesquisa" && req.method === "GET") {
+    const termo = query.q || ""
+    const limite = parseInt(query.limite, 10) || 20
+    const resultados = buscarItens(termo, limite)
 
-    // Filtra as propriedades para retornar exatamente a estrutura que seu front já espera
+    res.writeHead(200, { "Content-Type": "application/json" })
+    res.end(
+      JSON.stringify({
+        sucesso: true,
+        query: termo,
+        total: resultados.length,
+        resultados,
+      }),
+    )
+  } else if (pathname === "/api/sugestoes" && req.method === "GET") {
+    const termo = query.q || ""
+    const limite = parseInt(query.limite, 10) || 8
+    const resultados = buscarItens(termo, limite)
+
     const sugestoes = resultados.map((item) => ({
       id: item.id,
       titulo: item.titulo,
@@ -54,27 +47,26 @@ app.get("/api/sugestoes", async (req, res) => {
       url: item.url,
     }))
 
-    res.json({
-      sucesso: true,
-      query: termo,
-      sugestoes,
-    })
-  } catch (error) {
-    console.error("Erro na rota /api/sugestoes:", error)
-    res.status(500).json({ sucesso: false, erro: "Erro interno no servidor." })
+    res.writeHead(200, { "Content-Type": "application/json" })
+    res.end(
+      JSON.stringify({
+        sucesso: true,
+        query: termo,
+        sugestoes,
+      }),
+    )
+  } else {
+    res.writeHead(404, { "Content-Type": "application/json" })
+    res.end(
+      JSON.stringify({
+        sucesso: false,
+        message:
+          "Rota não encontrada. Use GET /api/pesquisa?q=termo ou GET /api/sugestoes?q=termo",
+      }),
+    )
   }
 })
 
-// Gerenciador de erros para rotas não encontradas (404) - Mantendo suas strings
-app.use((req, res) => {
-  res.status(404).json({
-    sucesso: false,
-    message:
-      "Rota não encontrada. Use GET /api/pesquisa?q=termo ou GET /api/sugestoes?q=termo",
-  })
-})
-
-// Inicia o servidor escutando na porta correta para o Render
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`🚀 API REST ativa e integrada ao Supabase na porta ${PORT}`)
+server.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`)
 })
